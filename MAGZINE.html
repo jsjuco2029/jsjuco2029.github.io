@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cozy Crochet</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      width: 1920px;
+      height: 1080px;
+      background: #1e3c72;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      width: 1920px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 100px;
+      z-index: 100;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 10px; /* smaller space between logo and title */
+    }
+
+    .logo-title img {
+      width: 74px;
+      height: 74px;
+      margin: 0;
+    }
+
+    .logo-title h1 {
+      font-size: 32px;
+      color: #a0c4ff;
+    }
+
+    nav a {
+      margin-left: 40px; /* spacing between links */
+      font-size: 20px;
+      text-decoration: none;
+      color: #cfe0fc;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #7dafff;
+    }
+
+    /* Hero Section */
+    .hero {
+      width: 1920px;
+      height: 700px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+    }
+
+    .hero h2 {
+      font-size: 60px;
+      color: #cfe0fc;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 22px;
+      max-width: 1200px;
+      margin-bottom: 40px;
+      color: #e0f0ff;
+    }
+
+    .hero button {
+      background: #4a90e2;
+      border: none;
+      padding: 18px 50px;
+      font-size: 20px;
+      border-radius: 35px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .hero button:hover {
+      background: #3571c0;
+    }
+
+    /* Features Section */
+    .features {
+      width: 1920px;
+      height: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      padding: 80px 100px;
+      background: #e0f0ff;
+    }
+
+    .feature {
+      background: #ffffff;
+      width: 400px;
+      height: 350px;
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature h3 {
+      color: #2a5298;
+      margin-bottom: 20px;
+      font-size: 26px;
+    }
+
+    .feature p {
+      font-size: 18px;
+      color: #1e3c72;
+    }
+
+    /* Footer */
+    footer {
+      width: 1920px;
+      height: 100px;
+      background: #2a5298;
+      text-align: center;
+      color: #e0f0ff;
+      font-size: 18px;
+      line-height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo-title">
+      <img src="https://jsjuco2029.github.io/COZY%20CROCHET.png" alt="Cozy Crochet Logo">
+      <h1>Cozy Crochet</h1>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About Me</a>
+      <a href="#">Crochet Ideas</a>
+      <a href="#">Materials Needed</a>
+      <a href="#">Why Should You Crochet?</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h2>Welcome to Cozy Crochet</h2>
+    <p>Join me on a creative journey exploring the wonderful world of crochet! Learn new techniques, discover cozy ideas, and make beautiful handmade creations that warm the heart.</p>
+    <button>Start Learning</button>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features">
+    <div class="feature">
+      <h3>🧵 Why Crochet?</h3>
+      <p>Discover why crocheting is more than a hobby—it's a way to relax, create, and connect with your creativity.</p>
+    </div>
+    <div class="feature">
+      <h3>📘 Crochet Ideas</h3>
+      <p>Explore inspiring projects and patterns perfect for beginners and seasoned crafters alike.</p>
+    </div>
+    <div class="feature">
+      <h3>🛠️ Materials Needed</h3>
+      <p>Learn what tools and materials you need to get started with your own cozy crochet creations.</p>
+    </div>
+    <div class="feature">
+      <h3>✨ My Journey</h3>
+      <p>See how I got started, why I love crochet, and tips for making your own handmade masterpieces.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Cozy Crochet | Handmade with Love 🧶
+  </footer>
+</body>
+</html>

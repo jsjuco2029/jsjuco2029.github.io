@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crochet Ideas - Cozy Crochet</title>
+  
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      width: 1920px;
+      height: auto;
+      margin: 0 auto;
+      background: #1e3c72;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+ 
+    .logo-title h1 {
+      font-family: "Nunito", sans-serif;
+      font-size: 34px;
+      color: #a0c4ff;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+      letter-spacing: 1px;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-title img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 30%;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(15px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 80px;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    nav a {
+      margin-left: 40px;
+      font-size: 19px;
+      text-decoration: none;
+      color: #cfe0fc;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #7dafff;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      border-radius: 2px;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .banner {
+      width: 100%;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-image: url(https://jsjuco2029.github.io/coverideas.png);
+      background-size: cover;
+      background-position: center;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(rgba(30,60,114,0.6), rgba(42,82,152,0.8));
+      z-index: 0;
+    }
+
+    .banner h2 {
+      font-size: 68px;
+      color: #fff;
+      text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
+      z-index: 1;
+      position: relative;
+    }
+
+    .banner p {
+      font-size: 24px;
+      color: #e0eafc;
+      max-width: 1100px;
+      margin-top: 20px;
+      line-height: 1.6;
+      z-index: 1;
+      position: relative;
+    }
+
+    .content {
+      background: #f5f9ff;
+      padding: 80px 100px;
+      color: #1e3c72;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+    }
+
+    .content h2 {
+      font-size: 40px;
+      margin-bottom: 40px;
+      text-align: center;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.1);
+    }
+
+    .ideas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    .idea {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+
+    .idea:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+    }
+
+    .idea img {
+      width: 180px; 
+      height: 180px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    }
+
+    .idea h3 {
+      font-size: 22px;
+      color: #2a5298;
+      margin-bottom: 12px;
+    }
+
+    .idea p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #1e3c72;
+    }
+
+    footer {
+      width: 100%;
+      padding: 30px 0;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #e0f0ff;
+      font-size: 16px;
+      text-align: center;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="https://jsjuco2029.github.io/COZY%20CROCHET%20LOGO.png" alt="Cozy Crochet Logo">
+      <h1>Cozy Crochet</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="aboutme.html">About Me</a>
+      <a href="why-crochet.html">Why Crochet?</a>
+      <a href="materials.html">Materials Needed</a>
+      <a href="crochet-ideas.html">Crochet Ideas</a>
+      <a href="references.html">References</a>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h2>Crochet Ideas</h2>
+    <p>Here are some fun crochet projects you can try, from easy to advanced!</p>
+  </section>
+
+  <section class="content">
+    <h2>✨ Beginner Projects</h2>
+    <div class="ideas-grid">
+      <div class="idea"><img src="https://jsjuco2029.github.io/grannysqaures.jpg" alt="Granny Squares"><h3>Granny Squares</h3><p>Classic and simple, perfect for practicing stitches.</p>
+    <p>By: Annie Design Crochet</p></div>
+      <div class="idea"><img src="https://jsjuco2029.github.io/coaster.jpg" alt="Crochet Coasters"><h3>Coasters</h3><p>Quick and useful—great first project!</p><p>By: Hayhay Crochet</p></div>
+      <div class="idea"><img src="https://jsjuco2029.github.io/headband.jpg" alt="Crochet Headband"><h3>Headbands</h3><p>Easy to customize and fun to wear.</p><p>By: Christine Naugle</p></div>
+      <div class="idea"><img src="https://jsjuco2029.github.io/scarf.jpg" alt="Crochet Scarf"><h3>Scarves</h3><p>Beginner-friendly, just rows of simple stitches.</p>
+    <p>By: Annie Design Crochet</p></div>
+</div>
+
+<h2>🎨 Intermediate Projects</h2>
+    <div class="ideas-grid">
+      <div class="idea"><img src="https://jsjuco2029.github.io/bee.png" alt="Amigurumi"><h3>Amigurumi Animals</h3><p>Stuffed crochet toys, fun and creative!</p><p>By: Mary Jay</p></div>
+      <div class="idea"><img src="https://jsjuco2029.github.io/bag.jpg" alt="Crochet Bag"><h3>Bags</h3><p>Trendy and practical, with endless design options.</p><p>By: Hayhay Crochet</p></div>
+      <div class="idea"><img src="https://jsjuco2029.github.io/hat.jpg" alt="Crochet Hat"><h3>Hats</h3><p>Great for gifts and learning shaping techniques.</p><p>By: Hayhay Crochet</p></div>
+      <div class="idea"><img src="https://jsjuco2029.github.io/cardigan.jpg" alt="Crochet Cardigan"><h3>Cardigans</h3><p>Lightweight clothing piece for layering.</p><p>By: Hayhay Crochet</p></div>
+    </div>
+
+    <h2>🌟 Advanced Projects</h2>
+    <div class="ideas-grid">
+      <div class="idea"><img src="https://jsjuco2029.github.io/blanket.png" alt="Crochet Blanket"><h3>Blankets</h3><p>Large and cozy, perfect for advanced stitch patterns.</p><p>By:Daniela(CJ Design)</p></div>
+      <div class="idea"><img src="https://jsjuco2029.github.io/tapestry.jpg" alt="Crochet Tapestry"><h3>Tapestry</h3><p>Challenging but rewarding—show off your skills!</p><p>By: Brenda K.B. Anderson</p></div>
+      <div class="idea"><img src="https://jsjuco2029.github.io/tablecloth.jpg" alt="Crochet Tablecloth"><h3>Tablecloths</h3><p>Intricate patterns requiring patience and precision.</p><p>By: LIN CROCHET</p></div>
+      <div class="idea"><img src="https://jsjuco2029.github.io/sweater.jpg" alt="Crochet Sweater"><h3>Sweaters</h3><p>Warm and stylish—master shaping and joining.</p><p>By: Hayhay Crochet</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>This website is a student project created for Computer Science 3 at PSHS - CLC.</p>
+    <p>Designed with ❤️ by a crochet enthusiast.</p>
+  </footer>
+</body>
+</html>

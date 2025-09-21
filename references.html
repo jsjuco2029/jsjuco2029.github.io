@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>References - Cozy Crochet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; 
+        padding: 0;
+        box-sizing: border-box; 
+        font-family: "Segoe UI", sans-serif;
+     }
+    body {
+      width: 1920px;
+      height: auto;
+      margin: 0 auto;
+      background: #1e3c72;
+      color: #a0c4ff;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 80px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(15px);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding: 0 80px;
+      z-index:100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .logo-title { display:flex;
+         align-items:center;
+         gap:12px;
+         }
+    .logo-title img { 
+        width:70px;
+         height:70px;
+          object-fit:cover; 
+     border-radius: 30%;
+     box-shadow: 0 0 10px rgba(255,255,255,0.2)
+         }
+        .logo-title h1 {
+      font-family: "Nunito", sans-serif;
+      font-size: 34px;
+      color: #a0c4ff;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      margin-left: 40px;
+      font-size: 19px;
+      text-decoration: none;
+      color: #cfe0fc;
+      font-weight: 600;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      display:block;
+      width:0;
+      height:2px;
+      background:#7dafff;
+      transition: width 0.25s;
+      position:absolute;
+      bottom:-6px;
+      left:0;
+      border-radius:2px;
+    }
+    nav a:hover {    
+        color:#fff; 
+    }
+    nav a:hover::after { 
+        width:100%;
+    }
+
+    .banner {
+      width:100%;
+      height:420px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      background-image: url('https://jsjuco2029.github.io/HOMEPAGE%20BANNER.png');
+      background-size: cover;
+      background-position: center;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      position: relative;
+      overflow:hidden;
+    }
+    .banner::before {
+      content:'';
+      position:absolute; top:0; left:0; width:100%; height:100%;
+      background: linear-gradient(rgba(30,60,114,0.6), rgba(42,82,152,0.8));
+      z-index:0;
+    }
+    .banner h2 {
+      font-size: 64px;
+      z-index:1;
+      position:relative;
+      color:#fff;
+      text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
+    }
+    .banner p {
+      z-index:1;
+      position:relative;
+      font-size:20px;
+      color:#e0eafc;
+      max-width:1100px;
+      margin-top:12px;
+      line-height:1.6;
+    }
+
+    .content {
+      background: #8facd8;
+      padding: 80px 110px;
+      color: #1e3c72;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+    }
+    .content h2 {
+      font-size: 40px;
+      margin-bottom: 18px;
+      text-align:center;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.08);
+    }
+    .intro {
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
+      font-size:18px;
+      color: #2a5298;
+      text-align:center;
+      line-height:1.6;
+    }
+
+
+    .apa-section {
+      margin-top: 70px;
+      background: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      color: #1e3c72;
+    }
+    .apa-section h2{
+      font-size: 32px;
+      margin-bottom: 10px;
+      text-align:center;
+    }
+    .apa-section h3 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      text-align:center;
+      color:#2a5298;
+    }
+    .apa-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .apa-list li {
+      margin-bottom: 14px;
+    }
+
+    footer {
+      width: 100%;
+      padding: 30px 0;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #e0f0ff;
+      font-size: 16px;
+      text-align: center;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="https://jsjuco2029.github.io/COZY%20CROCHET%20LOGO.png" alt="Cozy Crochet Logo">
+      <h1>Cozy Crochet</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="aboutme.html">About Me</a>
+      <a href="why-crochet.html">Why Crochet?</a>
+      <a href="materials.html">Materials Needed</a>
+      <a href="crochet-ideas.html">Crochet Ideas</a>
+      <a href="references.html">References</a>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h2>References</h2>
+    <p>These are the sources and inspirations used in making the Cozy Crochet website.</p>
+  </section>
+
+  <main class="content">
+   
+    <section class="apa-section">
+      <h2>References</h2>
+      <h3>In Making the Website</h3>
+      <ul class="apa-list">
+        <li>Annie Design Crochet. (2024, September 16). Easy chunky crochet scarf: free pattern. https://www.anniedesigncrochet.com/easy-chunky-crochet-scarf-free-pattern/</li>
+        <li>Annie Design Crochet. (2025, May 1). Crochet African Flower Granny Square (Free Pattern). https://www.anniedesigncrochet.com/crochet-african-flower-granny-square-free-pattern/</li>
+        <li>Christine. (2023, July 21). Simple flower Headband Crochet Pattern {FREE}. Sweet Potato 3. https://sweetpotato3.com/simple-flower-headband-pattern-free/</li>
+        <li>Danijaimalis, & Danijaimalis. (2023, November 17). Movie nights throw – easy chunky crochet blanket - CJ Design Blog. CJ Design Blog -. https://cjdesignblog.com/movie-night-throw/</li>
+        <li>Heather. (2022, January 13). Simple Crochet Ribbed Checker Beanie – FREE Pattern + video tutorial. Hayhay Crochet. https://hayhaycrochet.com/crochet-patterns/accessories/simple-checkered-beanie/</li>
+        <li>Heather. (2024, March 8). Beginner-Friendly Daisy Flower Coaster – FREE Pattern + video tutorial. Hayhay Crochet. https://hayhaycrochet.com/crochet-patterns/home-decor/beginner-friendly-daisy-flower-coaster/</li>
+        <li>Heather. (2024, April 2). Easy Crochet Granny Hexagon Cardigan – Free pattern + video tutorial. Hayhay Crochet. https://hayhaycrochet.com/crochet-patterns/cardigans/easy-crochet-classic-granny-hexagon-cardigan/</li>
+        <li>Heather. (2024, April 2). EASY Fluffy Mohair Sweater | ANY SIZE | Free Crochet Pattern + Video tutorial. Hayhay Crochet. https://hayhaycrochet.com/crochet-patterns/sweaters/easy-crochet-mohair-sweater/</li>
+        <li>Heather. (2025, August 13). Simple Crochet Gingham Tote Bag – Free Pattern + video tutorial. Hayhay Crochet. https://hayhaycrochet.com/crochet-patterns/accessories/crochet-gingham-tote-bag/</li>
+        <li>Hemptique. (n.d.). 10 Key benefits of Crocheting - Hemptique. https://hemptique.com/pages/10-benefits-of-crocheting?srsltid=AfmBOopdS-aBT5v4z3vYLwug9WDEfYzjjWaOSMr_B0VvhXid49pqwsxT</li>
+        <li>Incredible Beauty Easy 🧶 Crochet / Quick and Easy / Tablecloth Runner pattern. (n.d.). YouTube. https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D_yMiPPAr7tI&psig=AOvVaw3co0Xzjo3LMpeMRDsOw1Vo&ust=1758531374462000&source=images&cd=vfe&opi=89978449&ved=0CAMQjB1qFwoTCMja94K-6Y8DFQAAAAAdAAAAABAE</li>
+        <li>Jay, M. (2025, May 9). Free Crochet Bee Pattern ( 30 Minute Crochet Project with Video Tutorial) — The Mary Jay. The Mary Jay. https://www.themaryjay.com/free-patterns/mini-chunky-bee-crochet-pattern</li>
+        <li>Tapestry Crochet Patterns for Beginners. (2024, November 25). Creative Crochet Corner. Retrieved September 21, 2025, from https://www.creativecrochetcorner.com/post/tapestry-crochet-patterns-for-beginners</li>
+
+    </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>This website is a student project created for Computer Science 3 at PSHS - CLC.</p>
+    <p>Designed with ❤️ by a crochet enthusiast.</p>
+  </footer>
+</body>
+</html>

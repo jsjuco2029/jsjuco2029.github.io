@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discover Cebu - Homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;900&family=Original+Surfer&display=swap" rel="stylesheet">
+<style>
+
+body {
+  background: url('https://a.cdn-hotels.com/gdcs/production67/d203/2a7858ae-55c2-4427-817c-e655cabb81cd.jpg');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  color: white;
+  overflow-x: hidden;
+}
+
+
+    header {
+        background: rgba(0, 0, 0, 0.65);
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        font-family: "Original Surfer", sans-serif;
+    }
+
+    header img {
+        height: 75px;
+        width: 180px;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+    nav a {
+         font-family: "Original Surfer", sans-serif;
+
+        color: white;
+        text-decoration: none;
+        margin: 0 14px;
+        font-weight: 600;
+        font-size: 22px;
+        transition: 0.3s;
+    }
+nav a:hover {
+  color: #00d4ff;
+}
+
+
+.hero {
+  text-align: left;
+  padding: 100px 35px 20px;
+  background: rgba(0,0,0,0.55);
+  margin: 50px auto;
+  max-width: 85%;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 1.3s ease-in-out;
+  font-family: "Original Surfer", sans-serif;
+}
+.hero h2 {
+  font-size: 70px;
+  font-weight: 700;
+  text-shadow: 2px 2px 6px black;
+  margin: -50px 0 20px 0;
+}
+.hero p {
+  font-size: 22px;
+  max-width: 750px;
+  margin-bottom: 25px;
+}
+
+
+.card-carousel {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 50px 0;
+  flex-wrap: wrap;
+}
+.card {
+  width: 420px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0.5;
+}
+.card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+.card .caption {
+  padding: 15px;
+  text-align: center;
+}
+.card .caption h2 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-family: "Original Surfer", sans-serif;
+}
+.card .caption p {
+  margin: 0;
+  font-size: 15px;
+  font-family: "Original Surfer", sans-serif;
+}
+
+
+.card:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+.card-carousel:hover .card {
+  opacity: 0.5;
+}
+.card-carousel .card:hover {
+  opacity: 1;
+}
+
+
+.infor {
+  background: rgba(0,0,0,0.55);
+  margin: 60px auto;
+  max-width: 85%;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  display: flex;
+  gap: 30px;
+  padding: 35px;
+  align-items: center;
+}
+.infor-text h2 {
+  font-size: 42px;
+  text-shadow: 2px 2px 5px black;
+  font-family:"Original Surfer", sans-serif;
+}
+.infor-text p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+
+@media (max-width: 750px) {
+  .hero h2 { 
+    font-size: 50px; 
+  }
+  .hero p { 
+    font-size: 20px; 
+  }
+  .card {
+    width: 90%; 
+    max-width: 320px; 
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#"><img src="https://jsjuco2029.github.io/CEBU1.png" alt="Cebu Logo"></a>
+  <nav>
+    <a href="HOMEPAGE.html">Home</a>
+    <a href="attractions.html">Attractions</a>
+    <a href="food.html">Food</a>
+    <a href="accom.html">Accommodation</a>
+    <a href="ABOUTUS.html">About Us</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>It's time to meet<br>the authors! 🤝</h2>
+  <p>Get to know the creative minds behind our work! We are students of Batch 2029, Section Pinatubo, each with our own story, interests, and inspirations that 
+    shape the projects we create. Learn more about who we are and what drives us.<br><br>
+    We created this website not only because it was a requirement, but also as an opportunity to showcase our creativity and dedicate our full effort. 
+    It allowed us to bring ideas to life and demonstrate our skills in a practical, interactive way. <br><br>We started making this project during the 2nd quarter of 
+    our year level, Grade 9, as a collaborative effort consisting of five unique pages that highlight our individual styles and our skills in HTML coding.</p>
+  <img style="width: 1000px; margin-top: -470px; margin-left: 550px;" src="https://Raenah-G.github.io/cebuprofiles.png" alt="JD, Raenah, and Ollie">
+</section>
+
+<div class="card-carousel">
+  <div class="card">
+    <img src="https://Raenah-G.github.io/cebuprofile2.png" alt="JD">
+    <div class="caption">
+      <h2 style="text-shadow: 2px 2px 5px black;">Juco, James Derrick S.</h2>
+      <p>I like designing webpages because it lets me turn my creative ideas into real, visually appealing web pages.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://Raenah-G.github.io/cebuprofile.png" alt="Raenah">
+    <div class="caption">
+      <h2 style="text-shadow: 2px 2px 5px black;">Gato, Raenah Jane A.</h2>
+      <p>I like creating because it allows me to unleash the images of my imagination and further appreciate how creative God is.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://Raenah-G.github.io/cebuprofile1.png" alt="Ollie">
+    <div class="caption">
+      <h2 style="text-shadow: 2px 2px 5px black;">Dizon, Ollie Mysha A.</h2>
+      <p>I like designing webpages because it allows me to be creative while transforming ideas into functional and visually appealing websites.</p>
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <h2>Contacts: 📞☎️</h2>
+  <img style="width: 100px; margin-left: -15px;" src="https://www.pngmart.com/files/23/Facebook-Logo-PNG-Isolated-HD.png" alt="Facebook Logo">
+  <p style="margin-top: -50px; margin-left: 90px;">Follow us on Facebook!: JD Juco, Rae Nah, Ollie Mysha Dizon</p>
+  <img style="width: 100px; margin-left: -10px; margin-top: 5px;" src="https://logos-world.net/wp-content/uploads/2020/11/Gmail-Logo-2013-2020.png" alt="Gmail logo">
+   <p style="margin-top: -50px; margin-left: 90px;">Message us!: jsjuco2029@clc.pshs.edu.ph, ragato2029@clc.pshs.edu.ph, oadizon20292clc.pshs.edu.ph</p>
+   <img style="width: 1050px; margin-left: 365px; margin-top: -470px;" src="https://Raenah-G.github.io/2leaves.png" alt="A bundle of fern leaves">
+</section>
+
+</body>
+</html>

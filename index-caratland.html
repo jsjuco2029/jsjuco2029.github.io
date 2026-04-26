@@ -291,75 +291,131 @@ onsubmit="return checkout()">
 </div>
 
 <script>
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('caratCart')) || [];
 
-function add(name, price){
-  const existing = cart.find(item => item.prod_name === name);
+let modalProduct = null;
+let modalQuantity = 1;
 
-  if (existing) {
-    existing.quantity += 1;
+/* ======================
+   ADD BUTTON → OPEN MODAL
+====================== */
+function add(name, price) {
+  const existing = cart.find(i => i.prod_name === name);
+
+  modalProduct = { name, price };
+  modalQuantity = existing ? existing.quantity : 1;
+
+  document.getElementById('modalProductName').textContent = name;
+  document.getElementById('modalQty').textContent = modalQuantity;
+
+  document.getElementById('quantityModal').classList.add('active');
+}
+
+/* ======================
+   CLOSE MODAL
+====================== */
+function closeModal() {
+  document.getElementById('quantityModal').classList.remove('active');
+  modalProduct = null;
+}
+
+/* ======================
+   QUANTITY CONTROL
+====================== */
+function adjustModalQty(change) {
+  modalQuantity += change;
+  if (modalQuantity < 1) modalQuantity = 1;
+  document.getElementById('modalQty').textContent = modalQuantity;
+}
+
+/* ======================
+   CONFIRM ADD TO CART
+====================== */
+function confirmAddToCart() {
+  if (!modalProduct) return;
+
+  const index = cart.findIndex(i => i.prod_name === modalProduct.name);
+
+  if (index >= 0) {
+    cart[index].quantity = modalQuantity;
+    if (cart[index].quantity <= 0) cart.splice(index, 1);
   } else {
     cart.push({
-      prod_name: name,
-      prod_price: price,
-      quantity: 1
+      prod_name: modalProduct.name,
+      prod_price: modalProduct.price,
+      quantity: modalQuantity
     });
   }
 
-  render();
+  saveCart();
+  renderCart();
+  closeModal();
 }
 
-function render(){
+/* ======================
+   REMOVE ITEM
+====================== */
+function removeItem(i) {
+  cart.splice(i, 1);
+  saveCart();
+  renderCart();
+}
+
+/* ======================
+   SAVE CART (LOCAL STORAGE)
+====================== */
+function saveCart() {
+  localStorage.setItem('caratCart', JSON.stringify(cart));
+}
+
+/* ======================
+   RENDER CART
+====================== */
+function renderCart() {
+  const cartBox = document.getElementById("cart");
+  const totalBox = document.getElementById("total");
+  const countBox = document.getElementById("count");
+
   let total = 0;
   let html = "";
 
-  for(let i = 0; i < cart.length; i++){
-    const itemTotal = cart[i].prod_price * cart[i].quantity;
+  if (cart.length === 0) {
+    cartBox.innerHTML = "<p>Cart is empty</p>";
+    totalBox.innerText = "0";
+    countBox.innerText = "0";
+    return;
+  }
+
+  for (let i = 0; i < cart.length; i++) {
+    let item = cart[i];
+    let itemTotal = item.prod_price * item.quantity;
     total += itemTotal;
 
     html += `
       <div class="item">
         <div>
-          ${cart[i].prod_name} 
-          (x${cart[i].quantity}) - ₱${itemTotal}
+          ${item.prod_name} (x${item.quantity}) - ₱${itemTotal}
         </div>
         <button class="remove" onclick="removeItem(${i})">x</button>
       </div>
     `;
   }
 
-  document.getElementById("cart").innerHTML = html;
-  document.getElementById("total").innerText = total;
-  document.getElementById("count").innerText = cart.length;
+  cartBox.innerHTML = html;
+  totalBox.innerText = total;
+  countBox.innerText = cart.length;
 }
 
-function removeItem(i){
-  cart.splice(i, 1);
-  render();
-}
-
-function filter(type){
-  let cards = document.querySelectorAll(".card");
-
-  for(let i = 0; i < cards.length; i++){
-    if(type === "all") {
-      cards[i].style.display = "block";
-    } else {
-      cards[i].style.display = cards[i].dataset.type === type ? "block" : "none";
-    }
-  }
-}
-
-/* ✅ THIS IS THE IMPORTANT PART (CHECKOUT INTEGRATION) */
-function checkout(){
-
-  if(cart.length === 0){
+/* ======================
+   CHECKOUT (SEND TO SERVER)
+====================== */
+function checkout() {
+  if (cart.length === 0) {
     alert("Cart is empty!");
     return false;
   }
 
-  // Build order exactly like Analog Apple format
-  let orderData = cart.map(item => ({
+  const orderData = cart.map(item => ({
     prod_name: item.quantity > 1
       ? item.prod_name + " (Qty: " + item.quantity + ")"
       : item.prod_name,
@@ -368,9 +424,16 @@ function checkout(){
 
   document.getElementById("cust_order").value = JSON.stringify(orderData);
 
-  return true; // allow GET submit
+  localStorage.removeItem('caratCart');
+  return true;
 }
-</script>
 
+/* ======================
+   INIT ON LOAD
+====================== */
+document.addEventListener("DOMContentLoaded", function () {
+  renderCart();
+});
+</script>
 </body>
 </html>

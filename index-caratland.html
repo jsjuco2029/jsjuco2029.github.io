@@ -280,10 +280,13 @@ body{font-family:'Segoe UI';background:#fff;}
 <div id="cart"></div>
 <h6>Total: ₱<span id="total">0</span></h6>
 
-<form id="checkoutForm"
-method="GET"
-action="http://52.74.133.173/cs3/checkout.php"
-onsubmit="return checkout()">
+<form onsubmit="return checkout()">
+  <input name="cust_name" class="form-control mb-2" placeholder="Name" required>
+  <input name="cust_addr" class="form-control mb-2" placeholder="Address" required>
+  <input name="cust_email" class="form-control mb-2" type="email" placeholder="Email" required>
+
+  <button class="btn btn-dark w-100">Checkout</button>
+</form>
 
 <input name="cust_name" class="form-control mb-2" placeholder="Name" required>
 <input name="cust_addr" class="form-control mb-2" placeholder="Address" required>
@@ -357,15 +360,23 @@ function checkout() {
     return false;
   }
 
-  let order = cart.map(i => ({
-    prod_name: i.name + " x" + i.qty,
-    prod_price: i.price * i.qty
+  let orderData = cart.map(item => ({
+    prod_name: item.prod_name + " x" + item.quantity,
+    prod_price: item.prod_price * item.quantity
   }));
 
-  sessionStorage.setItem("carat_order", JSON.stringify(order));
+  let json = encodeURIComponent(JSON.stringify(orderData));
+
+  let name = encodeURIComponent(document.querySelector('[name="cust_name"]').value);
+  let addr = encodeURIComponent(document.querySelector('[name="cust_addr"]').value);
+  let email = encodeURIComponent(document.querySelector('[name="cust_email"]').value);
 
   window.location.href =
-    "http://52.74.133.173/cs3/checkout.php";
+    "http://52.74.133.173/cs3/checkout.php"
+    + "?cust_name=" + name
+    + "&cust_addr=" + addr
+    + "&cust_email=" + email
+    + "&co=" + json;
 
   return false;
 }

@@ -333,10 +333,6 @@ function filter(type){
 }
 
 function checkout(){
-  if(cart.length === 0){
-    alert("Cart is empty!");
-    return false;
-  }
 
   let orderData = cart.map(item => ({
     prod_name: item.prod_name,

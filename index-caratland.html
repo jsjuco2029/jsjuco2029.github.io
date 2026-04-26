@@ -344,8 +344,8 @@ function filter(type){
   }
 }
 
-function checkout(){
-  if(cart.length === 0){
+function checkout() {
+  if (cart.length === 0) {
     alert("Cart is empty!");
     return false;
   }
@@ -355,11 +355,19 @@ function checkout(){
     prod_price: i.price * i.qty
   }));
 
-  document.getElementById("cust_order").value = JSON.stringify(order);
+  let json = JSON.stringify(order);
+
+  let form = document.getElementById("checkoutForm");
+
+  let hidden = document.createElement("input");
+  hidden.type = "hidden";
+  hidden.name = "co";
+  hidden.value = json;
+
+  form.appendChild(hidden);
 
   return true;
 }
-
 render();
 
 </script>

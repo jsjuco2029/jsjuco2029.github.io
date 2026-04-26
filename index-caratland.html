@@ -16,19 +16,55 @@ body{font-family:'Segoe UI';background:#fff;}
   border-bottom:1px solid #eee;
   background:white;
 }
+
 .brand{font-weight:900;color:#6fa8dc;}
 
-.hero img{width:100%;height:400px;object-fit:cover;}
+.hero img{
+  width:100%;
+  height:400px;
+  object-fit:cover;
+}
 
-.tabs{display:flex;gap:10px;margin:20px;}
-.tab{border:1px solid #ddd;padding:5px 12px;border-radius:20px;cursor:pointer;}
+.tabs{
+  display:flex;
+  gap:10px;
+  margin:20px;
+  flex-wrap:wrap;
+}
 
-.product{border:1px solid #eee;padding:10px;border-radius:10px;text-align:center;}
-.product img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;}
+.tab{
+  border:1px solid #ddd;
+  padding:5px 12px;
+  border-radius:20px;
+  cursor:pointer;
+}
 
-.btn-svt{background:#f4a7b9;color:white;border:none;width:100%;}
+.product{
+  border:1px solid #eee;
+  padding:10px;
+  border-radius:10px;
+  text-align:center;
+}
 
-.box{border:1px solid #eee;padding:10px;border-radius:10px;}
+.product img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.btn-svt{
+  background:#f4a7b9;
+  color:white;
+  border:none;
+  width:100%;
+}
+
+.box{
+  border:1px solid #eee;
+  padding:10px;
+  border-radius:10px;
+}
 
 .cart-item{
   display:flex;
@@ -56,13 +92,21 @@ body{font-family:'Segoe UI';background:#fff;}
   <img src="https://jsjuco2029.github.io/CARATLAND.png">
 </div>
 
+<div class="tabs">
+  <div class="tab" onclick="filter('all')">All</div>
+  <div class="tab" onclick="filter('albums')">Albums</div>
+  <div class="tab" onclick="filter('merch')">Merch</div>
+  <div class="tab" onclick="filter('miniteen')">MINITEEN</div>
+  <div class="tab" onclick="filter('dvd')">DVD/MEDIA</div>
+</div>
+
 <div class="container-fluid">
 <div class="row">
 
 <div class="col-lg-8">
-
 <div class="row">
 
+<!-- ALBUMS -->
 <div class="col-md-4 item albums">
 <div class="product">
 <img src="https://jsjuco2029.github.io/SVTALBUM1.png">
@@ -103,11 +147,133 @@ body{font-family:'Segoe UI';background:#fff;}
 </div>
 </div>
 
+<!-- MERCH -->
+<div class="col-md-4 item merch">
+<div class="product">
+<img src="https://jsjuco2029.github.io/SVTMERCH1.png">
+<p>MINGYU Pan</p><p>₱2388</p>
+<button class="btn-svt" onclick="add('MINGYU Pan',2388)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item merch">
+<div class="product">
+<img src="https://jsjuco2029.github.io/SVTMERCH2.png">
+<p>WONWOO Keyboard</p><p>₱5210</p>
+<button class="btn-svt" onclick="add('WONWOO Keyboard',5210)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item merch">
+<div class="product">
+<img src="https://jsjuco2029.github.io/SVTMERCH3.png">
+<p>Light Stick Keyring</p><p>₱955</p>
+<button class="btn-svt" onclick="add('Light Stick Keyring',955)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item merch">
+<div class="product">
+<img src="https://jsjuco2029.github.io/SVTMERCH4.png">
+<p>Light Stick Ver.3</p><p>₱2127</p>
+<button class="btn-svt" onclick="add('Light Stick Ver.3',2127)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item merch">
+<div class="product">
+<img src="https://jsjuco2029.github.io/SVTMERCH5.png">
+<p>Seungkwan Badminton Set</p><p>₱5384</p>
+<button class="btn-svt" onclick="add('Seungkwan Badminton Set',5384)">Add</button>
+</div>
+</div>
+
+<!-- MINITEEN -->
+<div class="col-md-4 item miniteen">
+<div class="product">
+<img src="https://jsjuco2029.github.io/MINITEEN1.png">
+<p>Binder</p><p>₱1256</p>
+<button class="btn-svt" onclick="add('Binder',1256)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item miniteen">
+<div class="product">
+<img src="https://jsjuco2029.github.io/MINITEEN2.png">
+<p>Umbrella</p><p>₱1520</p>
+<button class="btn-svt" onclick="add('Umbrella',1520)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item miniteen">
+<div class="product">
+<img src="https://jsjuco2029.github.io/MINITEEN3.png">
+<p>Sticker Set</p><p>₱390</p>
+<button class="btn-svt" onclick="add('Sticker Set',390)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item miniteen">
+<div class="product">
+<img src="https://jsjuco2029.github.io/MINITEEN4.png">
+<p>Light Stick Strap Set</p><p>₱1520</p>
+<button class="btn-svt" onclick="add('Light Stick Strap Set',1520)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item miniteen">
+<div class="product">
+<img src="https://jsjuco2029.github.io/MINITEEN5.png">
+<p>L Holder Set</p><p>₱390</p>
+<button class="btn-svt" onclick="add('L Holder Set',390)">Add</button>
+</div>
+</div>
+
+<!-- DVD/MEDIA -->
+<div class="col-md-4 item dvd">
+<div class="product">
+<img src="https://jsjuco2029.github.io/media1.png">
+<p>World Tour DVD</p><p>₱2690</p>
+<button class="btn-svt" onclick="add('World Tour DVD',2690)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item dvd">
+<div class="product">
+<img src="https://jsjuco2029.github.io/media2.png">
+<p>Hoshi Photobook</p><p>₱999</p>
+<button class="btn-svt" onclick="add('Hoshi Photobook',999)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item dvd">
+<div class="product">
+<img src="https://jsjuco2029.github.io/media3.png">
+<p>2025 Fan Meeting</p><p>₱2388</p>
+<button class="btn-svt" onclick="add('2025 Fan Meeting',2388)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item dvd">
+<div class="product">
+<img src="https://jsjuco2029.github.io/media4.png">
+<p>2024 Fan Meeting</p><p>₱2388</p>
+<button class="btn-svt" onclick="add('2024 Fan Meeting',2388)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item dvd">
+<div class="product">
+<img src="https://jsjuco2029.github.io/media5.png">
+<p>2023 Fan Meeting</p><p>₱2388</p>
+<button class="btn-svt" onclick="add('2023 Fan Meeting',2388)">Add</button>
+</div>
+</div>
+
 </div>
 </div>
 
 <div class="col-lg-4">
-
 <div class="box">
 <h5>Cart (<span id="count">0</span>)</h5>
 <div id="cart"></div>
@@ -118,11 +284,10 @@ body{font-family:'Segoe UI';background:#fff;}
 <input name="cust_addr" class="form-control mb-2" placeholder="Address" required>
 <input name="cust_email" class="form-control mb-2" type="email" placeholder="Email" required>
 
-<input type="hidden" name="cust_order" id="cust_order">
+<input type="hidden" id="cust_order" name="cust_order">
 
 <button class="btn btn-dark w-100">Checkout</button>
 </form>
-
 </div>
 </div>
 
@@ -130,18 +295,12 @@ body{font-family:'Segoe UI';background:#fff;}
 </div>
 
 <script>
-
 let cart = [];
 
 function add(name, price){
   let found = cart.find(i => i.name === name);
-
-  if(found){
-    found.qty += 1;
-  } else {
-    cart.push({name, price, qty:1});
-  }
-
+  if(found) found.qty++;
+  else cart.push({name, price, qty:1});
   render();
 }
 
@@ -150,12 +309,11 @@ function render(){
   let total = 0;
 
   for(let i=0;i<cart.length;i++){
-    let itemTotal = cart[i].price * cart[i].qty;
-    total += itemTotal;
+    total += cart[i].price * cart[i].qty;
 
     html += `
       <div class="cart-item">
-        ${cart[i].name} x${cart[i].qty} ₱${itemTotal}
+        ${cart[i].name} x${cart[i].qty}
         <button class="remove" onclick="removeItem(${i})">x</button>
       </div>
     `;
@@ -171,22 +329,25 @@ function removeItem(i){
   render();
 }
 
+function filter(type){
+  let items = document.getElementsByClassName("item");
+
+  for(let i=0;i<items.length;i++){
+    items[i].style.display = (type==="all" || items[i].classList.contains(type)) ? "block" : "none";
+  }
+}
+
 function checkout(){
   if(cart.length === 0){
     alert("Cart is empty!");
     return false;
   }
 
-  let order = cart.map(i => ({
-    prod_name: i.name + " x" + i.qty,
-    prod_price: i.price * i.qty
-  }));
-
-  document.getElementById("cust_order").value = JSON.stringify(order);
-
+  document.getElementById("cust_order").value = JSON.stringify(cart);
   return true;
 }
 
+render();
 </script>
 
 </body>

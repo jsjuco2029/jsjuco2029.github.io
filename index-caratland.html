@@ -4,107 +4,72 @@
 <meta charset="UTF-8">
 <title>CARAT LAND MART</title>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
 <style>
-body{
-  font-family: Arial, sans-serif;
-  margin:0;
-  background:#fff;
-}
+body{font-family:'Segoe UI';}
 
 .topbar{
   display:flex;
   justify-content:space-between;
-  align-items:center;
   padding:10px 20px;
-  border-bottom:1px solid #ddd;
+  border-bottom:1px solid #eee;
+  background:white;
 }
 
-.brand{
-  font-weight:bold;
-  color:#6fa8dc;
-  font-size:20px;
-}
-
-.topbar a{
-  text-decoration:none;
-  color:#fff;
-  background:#6fa8dc;
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:14px;
-}
+.brand{font-weight:900;color:#6fa8dc;}
 
 .hero img{
   width:100%;
-  height:350px;
+  height:400px;
   object-fit:cover;
 }
 
 .tabs{
   display:flex;
-  gap:8px;
+  gap:10px;
+  margin:20px;
   flex-wrap:wrap;
-  padding:15px;
 }
 
 .tab{
-  padding:6px 12px;
-  border:1px solid #ccc;
+  border:1px solid #ddd;
+  padding:5px 12px;
   border-radius:20px;
   cursor:pointer;
 }
 
-.container{
-  display:flex;
-  gap:20px;
-  padding:20px;
-}
-
-.products{
-  flex:3;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
-
-.card{
+.product{
   border:1px solid #eee;
   padding:10px;
-  text-align:center;
   border-radius:10px;
+  text-align:center;
 }
 
-.card img{
+.product img{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
+  border-radius:8px;
 }
 
-.btn{
+.btn-svt{
   background:#f4a7b9;
   color:white;
   border:none;
-  padding:6px;
   width:100%;
   margin-top:5px;
-  cursor:pointer;
 }
 
-.btn2{
-  background:#6fa8dc;
-}
-
-.cart{
-  flex:1;
-  border:1px solid #ddd;
+.box{
+  border:1px solid #eee;
   padding:10px;
   border-radius:10px;
 }
 
-.item{
+.cart-item{
   display:flex;
   justify-content:space-between;
-  font-size:14px;
   margin-bottom:5px;
 }
 
@@ -112,27 +77,7 @@ body{
   background:red;
   color:white;
   border:none;
-  font-size:10px;
-  cursor:pointer;
-}
-
-/* MODAL */
-.modal{
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:rgba(0,0,0,0.5);
-  display:none;
-  justify-content:center;
-  align-items:center;
-}
-
-.modal-content{
-  background:#fff;
-  padding:20px;
-  border-radius:10px;
-  width:300px;
-  text-align:center;
+  font-size:12px;
 }
 </style>
 </head>
@@ -141,241 +86,280 @@ body{
 
 <div class="topbar">
   <div class="brand">CARATLAND MART</div>
-  <a href="./aboutteam.html">About Us</a>
+  <a href="aboutteam.html">About Us</a>
 </div>
 
 <div class="hero">
   <img src="https://jsjuco2029.github.io/CARATLAND.png">
 </div>
 
-<div class="container">
+<div class="tabs">
+  <div class="tab" onclick="show('all')">All</div>
+  <div class="tab" onclick="show('albums')">Albums</div>
+  <div class="tab" onclick="show('merch')">Merch</div>
+  <div class="tab" onclick="show('MINITEEN')">MINITEEN</div>
+  <div class="tab" onclick="show('dvd-media')">DVD/MEDIA</div>
+</div>
 
-<div class="products">
+<div class="container-fluid">
+<div class="row">
+
+<!-- PRODUCTS -->
+<div class="col-lg-8">
+<div class="row">
 
 <!-- ALBUMS -->
-<div class="card" data-type="albums">
+<div class="col-md-4 item albums">
+<div class="product">
 <img src="https://jsjuco2029.github.io/SVTALBUM1.png">
 <p>HAPPY BURSTDAY</p><p>₱2801</p>
-<button class="btn" onclick="openModal('HAPPY BURSTDAY',2801)">Add</button>
-<button class="btn btn2" onclick="purchase('HAPPY BURSTDAY',2801)">Purchase</button>
+<button class="btn-svt" onclick="add('HAPPY BURSTDAY',2801)">Add</button>
+</div>
 </div>
 
-<div class="card" data-type="albums">
+<div class="col-md-4 item albums">
+<div class="product">
 <img src="https://jsjuco2029.github.io/SVTALBUM2.png">
 <p>SPILL THE FEELS</p><p>₱2703</p>
-<button class="btn" onclick="openModal('SPILL THE FEELS',2703)">Add</button>
-<button class="btn btn2" onclick="purchase('SPILL THE FEELS',2703)">Purchase</button>
+<button class="btn-svt" onclick="add('SPILL THE FEELS',2703)">Add</button>
+</div>
 </div>
 
-<div class="card" data-type="albums">
+<div class="col-md-4 item albums">
+<div class="product">
 <img src="https://jsjuco2029.github.io/SVTALBUM3.png">
 <p>FML</p><p>₱2514</p>
-<button class="btn" onclick="openModal('FML',2514)">Add</button>
-<button class="btn btn2" onclick="purchase('FML',2514)">Purchase</button>
+<button class="btn-svt" onclick="add('FML',2514)">Add</button>
+</div>
 </div>
 
-<div class="card" data-type="albums">
+<div class="col-md-4 item albums">
+<div class="product">
 <img src="https://jsjuco2029.github.io/SVTALBUM4.png">
 <p>17 CARAT</p><p>₱447</p>
-<button class="btn" onclick="openModal('17 CARAT',447)">Add</button>
-<button class="btn btn2" onclick="purchase('17 CARAT',447)">Purchase</button>
+<button class="btn-svt" onclick="add('17 CARAT',447)">Add</button>
+</div>
 </div>
 
-<div class="card" data-type="albums">
+<div class="col-md-4 item albums">
+<div class="product">
 <img src="https://jsjuco2029.github.io/SVTALBUM5.png">
 <p>ATTACCA</p><p>₱2323</p>
-<button class="btn" onclick="openModal('ATTACCA',2323)">Add</button>
-<button class="btn btn2" onclick="purchase('ATTACCA',2323)">Purchase</button>
+<button class="btn-svt" onclick="add('ATTACCA',2323)">Add</button>
+</div>
 </div>
 
 <!-- MERCH -->
-<div class="card" data-type="merch">
+<div class="col-md-4 item merch">
+<div class="product">
 <img src="https://jsjuco2029.github.io/SVTMERCH1.png">
 <p>MINGYU Pan</p><p>₱2388</p>
-<button class="btn" onclick="openModal('MINGYU Pan',2388)">Add</button>
-<button class="btn btn2" onclick="purchase('MINGYU Pan',2388)">Purchase</button>
+<button class="btn-svt" onclick="add('MINGYU Pan',2388)">Add</button>
+</div>
 </div>
 
-<div class="card" data-type="merch">
+<div class="col-md-4 item merch">
+<div class="product">
 <img src="https://jsjuco2029.github.io/SVTMERCH2.png">
 <p>WONWOO Keyboard</p><p>₱5210</p>
-<button class="btn" onclick="openModal('WONWOO Keyboard',5210)">Add</button>
-<button class="btn btn2" onclick="purchase('WONWOO Keyboard',5210)">Purchase</button>
+<button class="btn-svt" onclick="add('WONWOO Keyboard',5210)">Add</button>
+</div>
 </div>
 
-<div class="card" data-type="merch">
+<div class="col-md-4 item merch">
+<div class="product">
 <img src="https://jsjuco2029.github.io/SVTMERCH3.png">
 <p>Light Stick Keyring</p><p>₱955</p>
-<button class="btn" onclick="openModal('Light Stick Keyring',955)">Add</button>
-<button class="btn btn2" onclick="purchase('Light Stick Keyring',955)">Purchase</button>
+<button class="btn-svt" onclick="add('Light Stick Keyring',955)">Add</button>
+</div>
 </div>
 
-<div class="card" data-type="merch">
+<div class="col-md-4 item merch">
+<div class="product">
 <img src="https://jsjuco2029.github.io/SVTMERCH4.png">
 <p>Light Stick Ver.3</p><p>₱2127</p>
-<button class="btn" onclick="openModal('Light Stick Ver.3',2127)">Add</button>
-<button class="btn btn2" onclick="purchase('Light Stick Ver.3',2127)">Purchase</button>
+<button class="btn-svt" onclick="add('Light Stick Ver.3',2127)">Add</button>
+</div>
 </div>
 
-<div class="card" data-type="merch">
+<div class="col-md-4 item merch">
+<div class="product">
 <img src="https://jsjuco2029.github.io/SVTMERCH5.png">
 <p>Seungkwan Badminton Set</p><p>₱5384</p>
-<button class="btn" onclick="openModal('Seungkwan Badminton Set',5384)">Add</button>
-<button class="btn btn2" onclick="purchase('Seungkwan Badminton Set',5384)">Purchase</button>
+<button class="btn-svt" onclick="add('Seungkwan Badminton Set',5384)">Add</button>
+</div>
 </div>
 
 <!-- MINITEEN -->
-<div class="card" data-type="miniteen">
+<div class="col-md-4 item MINITEEN">
+<div class="product">
 <img src="https://jsjuco2029.github.io/MINITEEN1.png">
 <p>Binder</p><p>₱1256</p>
-<button class="btn" onclick="openModal('Binder',1256)">Add</button>
-<button class="btn btn2" onclick="purchase('Binder',1256)">Purchase</button>
+<button class="btn-svt" onclick="add('Binder',1256)">Add</button>
+</div>
 </div>
 
-<div class="card" data-type="miniteen">
+<div class="col-md-4 item MINITEEN">
+<div class="product">
 <img src="https://jsjuco2029.github.io/MINITEEN2.png">
 <p>Umbrella</p><p>₱1520</p>
-<button class="btn" onclick="openModal('Umbrella',1520)">Add</button>
-<button class="btn btn2" onclick="purchase('Umbrella',1520)">Purchase</button>
+<button class="btn-svt" onclick="add('Umbrella',1520)">Add</button>
+</div>
 </div>
 
-<div class="card" data-type="miniteen">
+<div class="col-md-4 item MINITEEN">
+<div class="product">
 <img src="https://jsjuco2029.github.io/MINITEEN3.png">
 <p>Sticker Set</p><p>₱390</p>
-<button class="btn" onclick="openModal('Sticker Set',390)">Add</button>
-<button class="btn btn2" onclick="purchase('Sticker Set',390)">Purchase</button>
+<button class="btn-svt" onclick="add('Sticker Set',390)">Add</button>
+</div>
 </div>
 
-<div class="card" data-type="miniteen">
+<div class="col-md-4 item MINITEEN">
+<div class="product">
 <img src="https://jsjuco2029.github.io/MINITEEN4.png">
 <p>Light Stick Strap Set</p><p>₱1520</p>
-<button class="btn" onclick="openModal('Light Stick Strap Set',1520)">Add</button>
-<button class="btn btn2" onclick="purchase('Light Stick Strap Set',1520)">Purchase</button>
+<button class="btn-svt" onclick="add('Light Stick Strap Set',1520)">Add</button>
+</div>
 </div>
 
-<div class="card" data-type="miniteen">
+<div class="col-md-4 item MINITEEN">
+<div class="product">
 <img src="https://jsjuco2029.github.io/MINITEEN5.png">
 <p>L Holder Set</p><p>₱390</p>
-<button class="btn" onclick="openModal('L Holder Set',390)">Add</button>
-<button class="btn btn2" onclick="purchase('L Holder Set',390)">Purchase</button>
+<button class="btn-svt" onclick="add('L Holder Set',390)">Add</button>
+</div>
 </div>
 
-<!-- MEDIA -->
-<div class="card" data-type="media">
+<!-- DVD/MEDIA -->
+<div class="col-md-4 item dvd-media">
+<div class="product">
 <img src="https://jsjuco2029.github.io/media1.png">
-<p>World Tour DVD</p><p>₱2690</p>
-<button class="btn" onclick="openModal('World Tour DVD',2690)">Add</button>
-<button class="btn btn2" onclick="purchase('World Tour DVD',2690)">Purchase</button>
+<p>WORLD TOUR DVD</p><p>₱2690</p>
+<button class="btn-svt" onclick="add('WORLD TOUR DVD',2690)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item dvd-media">
+<div class="product">
+<img src="https://jsjuco2029.github.io/media2.png">
+<p>HOSHI PHOTOBOOK</p><p>₱999</p>
+<button class="btn-svt" onclick="add('HOSHI PHOTOBOOK',999)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item dvd-media">
+<div class="product">
+<img src="https://jsjuco2029.github.io/media3.png">
+<p>2025 CARAT LAND</p><p>₱2388</p>
+<button class="btn-svt" onclick="add('2025 CARAT LAND',2388)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item dvd-media">
+<div class="product">
+<img src="https://jsjuco2029.github.io/media4.png">
+<p>2024 CARAT LAND</p><p>₱2388</p>
+<button class="btn-svt" onclick="add('2024 CARAT LAND',2388)">Add</button>
+</div>
+</div>
+
+<div class="col-md-4 item dvd-media">
+<div class="product">
+<img src="https://jsjuco2029.github.io/media5.png">
+<p>2023 CARAT LAND</p><p>₱2388</p>
+<button class="btn-svt" onclick="add('2023 CARAT LAND',2388)">Add</button>
+</div>
 </div>
 
 </div>
+</div>
 
-<div class="cart">
-<h3>Cart (<span id="count">0</span>)</h3>
+<!-- CART -->
+<div class="col-lg-4">
+<div class="box">
+
+<h5>Cart (<span id="count">0</span>)</h5>
 <div id="cart"></div>
-<h4>Total: ₱<span id="total">0</span></h4>
+<h6>Total: ₱<span id="total">0</span></h6>
 
-<form method="GET" action="http://52.74.133.173/cs3/checkout.php" onsubmit="return checkout()">
-<input name="cust_name" placeholder="Name" required><br><br>
-<input name="cust_addr" placeholder="Address" required><br><br>
-<input name="cust_email" placeholder="Email" required><br><br>
-<input type="hidden" name="cust_order" id="cust_order">
-<button class="btn" type="submit">Checkout</button>
+<form onsubmit="return checkout()">
+<input class="form-control mb-2" placeholder="Name" required>
+<input class="form-control mb-2" placeholder="Address" required>
+<input class="form-control mb-2" type="email" placeholder="Email" required>
+<button class="btn btn-dark w-100">Checkout</button>
 </form>
 
 </div>
 </div>
 
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <h3 id="pname"></h3>
-    <p>Qty</p>
-    <button onclick="qty(-1)">-</button>
-    <span id="qty">1</span>
-    <button onclick="qty(1)">+</button>
-    <br><br>
-    <button class="btn" onclick="confirm()">Confirm</button>
-  </div>
+</div>
 </div>
 
 <script>
-let cart = JSON.parse(localStorage.getItem("caratCart")) || [];
-let current = null;
-let qtyVal = 1;
 
-function openModal(name, price){
-  current = {name, price};
-  qtyVal = 1;
-  document.getElementById("pname").innerText = name;
-  document.getElementById("qty").innerText = qtyVal;
-  document.getElementById("modal").style.display="flex";
+let cart = [];
+
+function add(name, price){
+  cart.push({name, price});
+  display();
 }
 
-function purchase(name, price){
-  openModal(name, price);
-}
-
-function qty(x){
-  qtyVal += x;
-  if(qtyVal < 1) qtyVal = 1;
-  document.getElementById("qty").innerText = qtyVal;
-}
-
-function confirm(){
-  cart.push({
-    prod_name: current.name,
-    prod_price: current.price,
-    quantity: qtyVal
-  });
-
-  localStorage.setItem("caratCart", JSON.stringify(cart));
-  render();
-  document.getElementById("modal").style.display="none";
-}
-
-function render(){
-  let c = document.getElementById("cart");
+function display(){
+  let text = "";
   let total = 0;
 
-  c.innerHTML = "";
+  for(let i=0;i<cart.length;i++){
+    total += cart[i].price;
 
-  cart.forEach((i,idx)=>{
-    total += i.prod_price * i.quantity;
-
-    c.innerHTML += `
-      <div class="item">
-        ${i.prod_name} x${i.quantity}
-        <button class="remove" onclick="removeItem(${idx})">x</button>
+    text += `
+      <div class="cart-item">
+        ${cart[i].name} ₱${cart[i].price}
+        <button class="remove" onclick="remove(${i})">x</button>
       </div>
     `;
-  });
+  }
 
+  document.getElementById("cart").innerHTML = text;
   document.getElementById("total").innerText = total;
   document.getElementById("count").innerText = cart.length;
 }
 
-function removeItem(i){
+function remove(i){
   cart.splice(i,1);
-  localStorage.setItem("caratCart", JSON.stringify(cart));
-  render();
+  display();
+}
+
+function show(type){
+  let items = document.getElementsByClassName("item");
+
+  for(let i=0;i<items.length;i++){
+    items[i].style.display = "none";
+  }
+
+  if(type==="all"){
+    for(let i=0;i<items.length;i++){
+      items[i].style.display = "block";
+    }
+    return;
+  }
+
+  let selected = document.getElementsByClassName(type);
+  for(let i=0;i<selected.length;i++){
+    selected[i].style.display = "block";
+  }
 }
 
 function checkout(){
   if(cart.length===0){
-    alert("Cart empty!");
+    alert("Cart is empty!");
     return false;
   }
 
-  document.getElementById("cust_order").value =
-    JSON.stringify(cart.map(i=>({
-      prod_name: i.prod_name,
-      prod_price: i.prod_price * i.quantity
-    })));
-
+  alert("Order placed!");
   return true;
 }
 
-render();
 </script>
 
 </body>

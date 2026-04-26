@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Checkout Page</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const cust_name = params.get("cust_name");
+const cust_addr = params.get("cust_addr");
+const cust_email = params.get("cust_email");
+const co = params.get("co");
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("name").textContent = cust_name || "No data received";
+  document.getElementById("email").textContent = cust_email || "No data received";
+  document.getElementById("addr").textContent = cust_addr || "No data received";
+});
+</script>
+
+</head>
+
+<body>
+
+<div class="p-5 mb-3 bg-light">
+  <div class="container">
+    <h1 class="display-4">Checkout Page</h1>
+    <p>This page confirms your order.</p>
+  </div>
+</div>
+
+<div class="container">
+<div class="row">
+
+<!-- DELIVERY -->
+<div class="col-sm-6">
+<h4 class="my-3">Delivery Details</h4>
+
+<h6 id="name"><em>No data received</em></h6>
+<small class="text-muted">Name</small>
+<br><br>
+
+<h6 id="email"><em>No data received</em></h6>
+<small class="text-muted">Email</small>
+<br><br>
+
+<h6 id="addr"><em>No data received</em></h6>
+<small class="text-muted">Address</small>
+
+</div>
+
+<!-- CART -->
+<div class="col-sm-6">
+<h4 class="my-3">Online Cart</h4>
+
+<div class="card">
+<ul class="list-group list-group-flush">
+
+<script>
+var f = new Intl.NumberFormat('en-US', {
+  style:'currency',
+  currency:'PHP'
+});
+
+var totalcost = 0;
+
+if (co) {
+  try {
+    var cust_order = JSON.parse(decodeURIComponent(co));
+
+    for (let i = 0; i < cust_order.length; i++) {
+      document.write(
+        '<li class="list-group-item">' +
+        '<h6>' + cust_order[i].prod_name + '</h6>' +
+        '<p>' + f.format(cust_order[i].prod_price) + '</p>' +
+        '</li>'
+      );
+
+      totalcost += cust_order[i].prod_price;
+    }
+
+  } catch (e) {
+    document.write('<li class="list-group-item">JSON Error: ' + e + '</li>');
+  }
+} else {
+  document.write('<li class="list-group-item">Cart is empty or no data received</li>');
+}
+</script>
+
+</ul>
+
+<div class="card-footer">
+<span id="totalcost"></span>
+</div>
+
+<script>
+document.getElementById("totalcost").innerText =
+  new Intl.NumberFormat('en-US', {
+    style:'currency',
+    currency:'PHP'
+  }).format(totalcost);
+</script>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

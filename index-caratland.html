@@ -279,7 +279,7 @@ body{font-family:'Segoe UI';background:#fff;}
 <div id="cart"></div>
 <h6>Total: ₱<span id="total">0</span></h6>
 
-<form onsubmit="return checkout()">
+<form id="checkoutForm" method="GET" action="http://52.74.133.173/cs3/checkout.php" onsubmit="return checkout()">
 <input name="cust_name" class="form-control mb-2" placeholder="Name" required>
 <input name="cust_addr" class="form-control mb-2" placeholder="Address" required>
 <input name="cust_email" class="form-control mb-2" type="email" placeholder="Email" required>
@@ -342,6 +342,16 @@ function checkout(){
     alert("Cart is empty!");
     return false;
   }
+
+  let order = cart.map(i => ({
+    prod_name: i.name + " x" + i.qty,
+    prod_price: i.price * i.qty
+  }));
+
+  document.getElementById("cust_order").value = JSON.stringify(order);
+
+  return true;
+}
 
   document.getElementById("cust_order").value = JSON.stringify(cart);
   return true;

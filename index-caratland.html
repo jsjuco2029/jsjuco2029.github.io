@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
 
 <style>
-body{font-family:'Segoe UI';margin:0;background:#fff;}
+body{font-family:'Segoe UI';background:#fff;}
 
 .topbar{
   display:flex;
@@ -16,63 +16,23 @@ body{font-family:'Segoe UI';margin:0;background:#fff;}
   border-bottom:1px solid #eee;
   background:white;
 }
-
 .brand{font-weight:900;color:#6fa8dc;}
 
-.hero img{
-  width:100%;
-  height:400px;
-  object-fit:cover;
-}
+.hero img{width:100%;height:400px;object-fit:cover;}
 
-.tabs{
-  display:flex;
-  gap:10px;
-  margin:20px;
-}
+.tabs{display:flex;gap:10px;margin:20px;}
+.tab{border:1px solid #ddd;padding:5px 12px;border-radius:20px;cursor:pointer;}
 
-.tab{
-  border:1px solid #ddd;
-  padding:5px 12px;
-  border-radius:20px;
-  cursor:pointer;
-}
+.product{border:1px solid #eee;padding:10px;border-radius:10px;text-align:center;}
+.product img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;}
 
-.product{
-  border:1px solid #eee;
-  padding:10px;
-  border-radius:10px;
-  text-align:center;
-}
+.btn-svt{background:#f4a7b9;color:white;border:none;width:100%;}
 
-.product img{
-  width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  border-radius:8px;
-}
-
-.btn-svt{
-  background:#f4a7b9;
-  color:#fff;
-  border:none;
-  width:48%;
-  padding:5px;
-  margin-top:5px;
-}
-
-.cart-box{
-  border:1px solid #eee;
-  padding:10px;
-  border-radius:10px;
-  position:sticky;
-  top:10px;
-}
+.box{border:1px solid #eee;padding:10px;border-radius:10px;}
 
 .cart-item{
   display:flex;
   justify-content:space-between;
-  font-size:14px;
   margin-bottom:5px;
 }
 
@@ -96,18 +56,11 @@ body{font-family:'Segoe UI';margin:0;background:#fff;}
   <img src="https://jsjuco2029.github.io/CARATLAND.png">
 </div>
 
-<div class="tabs">
-  <div class="tab" onclick="show('all')">All</div>
-  <div class="tab" onclick="show('albums')">Albums</div>
-  <div class="tab" onclick="show('merch')">Merch</div>
-  <div class="tab" onclick="show('MINITEEN')">MINITEEN</div>
-  <div class="tab" onclick="show('dvd')">DVD/MEDIA</div>
-</div>
-
 <div class="container-fluid">
 <div class="row">
 
 <div class="col-lg-8">
+
 <div class="row">
 
 <div class="col-md-4 item albums">
@@ -115,7 +68,6 @@ body{font-family:'Segoe UI';margin:0;background:#fff;}
 <img src="https://jsjuco2029.github.io/SVTALBUM1.png">
 <p>HAPPY BURSTDAY</p><p>₱2801</p>
 <button class="btn-svt" onclick="add('HAPPY BURSTDAY',2801)">Add</button>
-<button class="btn-svt" onclick="buy('HAPPY BURSTDAY',2801)">Buy</button>
 </div>
 </div>
 
@@ -124,7 +76,6 @@ body{font-family:'Segoe UI';margin:0;background:#fff;}
 <img src="https://jsjuco2029.github.io/SVTALBUM2.png">
 <p>SPILL THE FEELS</p><p>₱2703</p>
 <button class="btn-svt" onclick="add('SPILL THE FEELS',2703)">Add</button>
-<button class="btn-svt" onclick="buy('SPILL THE FEELS',2703)">Buy</button>
 </div>
 </div>
 
@@ -133,7 +84,6 @@ body{font-family:'Segoe UI';margin:0;background:#fff;}
 <img src="https://jsjuco2029.github.io/SVTALBUM3.png">
 <p>FML</p><p>₱2514</p>
 <button class="btn-svt" onclick="add('FML',2514)">Add</button>
-<button class="btn-svt" onclick="buy('FML',2514)">Buy</button>
 </div>
 </div>
 
@@ -142,7 +92,6 @@ body{font-family:'Segoe UI';margin:0;background:#fff;}
 <img src="https://jsjuco2029.github.io/SVTALBUM4.png">
 <p>17 CARAT</p><p>₱447</p>
 <button class="btn-svt" onclick="add('17 CARAT',447)">Add</button>
-<button class="btn-svt" onclick="buy('17 CARAT',447)">Buy</button>
 </div>
 </div>
 
@@ -151,124 +100,6 @@ body{font-family:'Segoe UI';margin:0;background:#fff;}
 <img src="https://jsjuco2029.github.io/SVTALBUM5.png">
 <p>ATTACCA</p><p>₱2323</p>
 <button class="btn-svt" onclick="add('ATTACCA',2323)">Add</button>
-<button class="btn-svt" onclick="buy('ATTACCA',2323)">Buy</button>
-</div>
-</div>
-
-<div class="col-md-4 item merch">
-<div class="product">
-<img src="https://jsjuco2029.github.io/SVTMERCH1.png">
-<p>MINGYU PAN</p><p>₱2388</p>
-<button class="btn-svt" onclick="add('MINGYU PAN',2388)">Add</button>
-<button class="btn-svt" onclick="buy('MINGYU PAN',2388)">Buy</button>
-</div>
-</div>
-
-<div class="col-md-4 item merch">
-<div class="product">
-<img src="https://jsjuco2029.github.io/SVTMERCH2.png">
-<p>WONWOO KEYBOARD</p><p>₱5210</p>
-<button class="btn-svt" onclick="add('WONWOO KEYBOARD',5210)">Add</button>
-<button class="btn-svt" onclick="buy('WONWOO KEYBOARD',5210)">Buy</button>
-</div>
-</div>
-
-<div class="col-md-4 item merch">
-<div class="product">
-<img src="https://jsjuco2029.github.io/SVTMERCH3.png">
-<p>LIGHT STICK KEYRING</p><p>₱955</p>
-<button class="btn-svt" onclick="add('LIGHT STICK KEYRING',955)">Add</button>
-<button class="btn-svt" onclick="buy('LIGHT STICK KEYRING',955)">Buy</button>
-</div>
-</div>
-
-<div class="col-md-4 item merch">
-<div class="product">
-<img src="https://jsjuco2029.github.io/SVTMERCH4.png">
-<p>LIGHT STICK VER.3</p><p>₱2127</p>
-<button class="btn-svt" onclick="add('LIGHT STICK VER.3',2127)">Add</button>
-<button class="btn-svt" onclick="buy('LIGHT STICK VER.3',2127)">Buy</button>
-</div>
-</div>
-
-<div class="col-md-4 item merch">
-<div class="product">
-<img src="https://jsjuco2029.github.io/SVTMERCH5.png">
-<p>BADMINTON SET</p><p>₱5384</p>
-<button class="btn-svt" onclick="add('BADMINTON SET',5384)">Add</button>
-<button class="btn-svt" onclick="buy('BADMINTON SET',5384)">Buy</button>
-</div>
-</div>
-
-<div class="col-md-4 item MINITEEN">
-<div class="product">
-<img src="https://jsjuco2029.github.io/MINITEEN1.png">
-<p>BINDER</p><p>₱1256</p>
-<button class="btn-svt" onclick="add('BINDER',1256)">Add</button>
-<button class="btn-svt" onclick="buy('BINDER',1256)">Buy</button>
-</div>
-</div>
-
-<div class="col-md-4 item MINITEEN">
-<div class="product">
-<img src="https://jsjuco2029.github.io/MINITEEN2.png">
-<p>UMBRELLA</p><p>₱1520</p>
-<button class="btn-svt" onclick="add('UMBRELLA',1520)">Add</button>
-<button class="btn-svt" onclick="buy('UMBRELLA',1520)">Buy</button>
-</div>
-</div>
-
-<div class="col-md-4 item MINITEEN">
-<div class="product">
-<img src="https://jsjuco2029.github.io/MINITEEN3.png">
-<p>STICKER SET</p><p>₱390</p>
-<button class="btn-svt" onclick="add('STICKER SET',390)">Add</button>
-<button class="btn-svt" onclick="buy('STICKER SET',390)">Buy</button>
-</div>
-</div>
-
-<div class="col-md-4 item MINITEEN">
-<div class="product">
-<img src="https://jsjuco2029.github.io/MINITEEN4.png">
-<p>STRAP SET</p><p>₱1520</p>
-<button class="btn-svt" onclick="add('STRAP SET',1520)">Add</button>
-<button class="btn-svt" onclick="buy('STRAP SET',1520)">Buy</button>
-</div>
-</div>
-
-<div class="col-md-4 item MINITEEN">
-<div class="product">
-<img src="https://jsjuco2029.github.io/MINITEEN5.png">
-<p>L HOLDER SET</p><p>₱390</p>
-<button class="btn-svt" onclick="add('L HOLDER SET',390)">Add</button>
-<button class="btn-svt" onclick="buy('L HOLDER SET',390)">Buy</button>
-</div>
-</div>
-
-<div class="col-md-4 item dvd">
-<div class="product">
-<img src="https://jsjuco2029.github.io/media1.png">
-<p>WORLD TOUR DVD</p><p>₱2690</p>
-<button class="btn-svt" onclick="add('WORLD TOUR DVD',2690)">Add</button>
-<button class="btn-svt" onclick="buy('WORLD TOUR DVD',2690)">Buy</button>
-</div>
-</div>
-
-<div class="col-md-4 item dvd">
-<div class="product">
-<img src="https://jsjuco2029.github.io/media2.png">
-<p>HOSHI PHOTOBOOK</p><p>₱999</p>
-<button class="btn-svt" onclick="add('HOSHI PHOTOBOOK',999)">Add</button>
-<button class="btn-svt" onclick="buy('HOSHI PHOTOBOOK',999)">Buy</button>
-</div>
-</div>
-
-<div class="col-md-4 item dvd">
-<div class="product">
-<img src="https://jsjuco2029.github.io/media3.png">
-<p>CARAT LAND 2025</p><p>₱2388</p>
-<button class="btn-svt" onclick="add('CARAT LAND 2025',2388)">Add</button>
-<button class="btn-svt" onclick="buy('CARAT LAND 2025',2388)">Buy</button>
 </div>
 </div>
 
@@ -276,16 +107,19 @@ body{font-family:'Segoe UI';margin:0;background:#fff;}
 </div>
 
 <div class="col-lg-4">
-<div class="cart-box">
+
+<div class="box">
 <h5>Cart (<span id="count">0</span>)</h5>
 <div id="cart"></div>
 <h6>Total: ₱<span id="total">0</span></h6>
 
-<form id="checkoutForm" action="https://52.74.133.173/cs3/checkout.php" method="GET" onsubmit="return checkout()">
-<input name="cust_name" id="name">
-<input name="cust_addr" id="addr">
-<input name="cust_email" id="email">
+<form onsubmit="return checkout()">
+<input name="cust_name" class="form-control mb-2" placeholder="Name" required>
+<input name="cust_addr" class="form-control mb-2" placeholder="Address" required>
+<input name="cust_email" class="form-control mb-2" type="email" placeholder="Email" required>
+
 <input type="hidden" name="cust_order" id="cust_order">
+
 <button class="btn btn-dark w-100">Checkout</button>
 </form>
 
@@ -300,24 +134,15 @@ body{font-family:'Segoe UI';margin:0;background:#fff;}
 let cart = [];
 
 function add(name, price){
-  cart.push({name, price});
+  let found = cart.find(i => i.name === name);
+
+  if(found){
+    found.qty += 1;
+  } else {
+    cart.push({name, price, qty:1});
+  }
+
   render();
-}
-
-function buy(name, price){
-  let n = prompt("Name:");
-  let a = prompt("Address:");
-  let e = prompt("Email:");
-
-  if(!n || !a || !e) return;
-
-  document.getElementById("name").value = n;
-  document.getElementById("addr").value = a;
-  document.getElementById("email").value = e;
-
-  document.getElementById("cust_order").value = JSON.stringify([{prod_name:name, prod_price:price}]);
-
-  document.getElementById("checkoutForm").submit();
 }
 
 function render(){
@@ -325,11 +150,12 @@ function render(){
   let total = 0;
 
   for(let i=0;i<cart.length;i++){
-    total += cart[i].price;
+    let itemTotal = cart[i].price * cart[i].qty;
+    total += itemTotal;
 
     html += `
       <div class="cart-item">
-        ${cart[i].name} ₱${cart[i].price}
+        ${cart[i].name} x${cart[i].qty} ₱${itemTotal}
         <button class="remove" onclick="removeItem(${i})">x</button>
       </div>
     `;
@@ -345,38 +171,18 @@ function removeItem(i){
   render();
 }
 
-function show(type){
-  let items = document.getElementsByClassName("item");
-
-  for(let i=0;i<items.length;i++){
-    items[i].style.display = (type==="all") ? "block" : "none";
-  }
-
-  if(type!=="all"){
-    let sel = document.getElementsByClassName(type);
-    for(let i=0;i<sel.length;i++){
-      sel[i].style.display="block";
-    }
-  }
-}
-
 function checkout(){
-  if(cart.length===0){
-    alert("Cart empty");
+  if(cart.length === 0){
+    alert("Cart is empty!");
     return false;
   }
 
-  let n = document.getElementById("name").value;
-  let a = document.getElementById("addr").value;
-  let e = document.getElementById("email").value;
+  let order = cart.map(i => ({
+    prod_name: i.name + " x" + i.qty,
+    prod_price: i.price * i.qty
+  }));
 
-  if(!n || !a || !e){
-    alert("Fill info");
-    return false;
-  }
-
-  document.getElementById("cust_order").value =
-  JSON.stringify(cart.map(i=>({prod_name:i.name,prod_price:i.price})));
+  document.getElementById("cust_order").value = JSON.stringify(order);
 
   return true;
 }

@@ -221,26 +221,53 @@ let modalProduct = null;
 let modalQty = 1;
 
 function add(name, price){
-  const existing = cart.find(i => i.prod_name === name);
-
   modalProduct = { name, price };
-  modalQty = existing ? existing.quantity : 1;
+  modalQty = 1;
 
-  document.getElementById("modalProductName").innerText = name;
-  document.getElementById("modalQty").innerText = modalQty;
+  const existing = cart.find(i => i.prod_name === name);
+  if(existing) modalQty = existing.quantity;
 
-  document.getElementById("quantityModal").classList.add("active");
+  const nameBox = document.getElementById("modalProductName");
+  const qtyBox = document.getElementById("modalQty");
+  const modal = document.getElementById("quantityModal");
+
+  if(nameBox && qtyBox && modal){
+    nameBox.innerText = name;
+    qtyBox.innerText = modalQty;
+    modal.classList.add("active");
+  } else {
+    quickAdd();
+  }
+}
+
+function quickAdd(){
+  const index = cart.findIndex(i => i.prod_name === modalProduct.name);
+
+  if(index >= 0){
+    cart[index].quantity += 1;
+  } else {
+    cart.push({
+      prod_name: modalProduct.name,
+      prod_price: modalProduct.price,
+      quantity: 1
+    });
+  }
+
+  save();
+  render();
 }
 
 function closeModal(){
-  document.getElementById("quantityModal").classList.remove("active");
+  const modal = document.getElementById("quantityModal");
+  if(modal) modal.classList.remove("active");
   modalProduct = null;
 }
 
 function adjustQty(x){
   modalQty += x;
   if(modalQty < 1) modalQty = 1;
-  document.getElementById("modalQty").innerText = modalQty;
+  const qtyBox = document.getElementById("modalQty");
+  if(qtyBox) qtyBox.innerText = modalQty;
 }
 
 function confirmAdd(){
@@ -274,8 +301,21 @@ function save(){
 }
 
 function render(){
+  const cartBox = document.getElementById("cart");
+  const totalBox = document.getElementById("total");
+  const countBox = document.getElementById("count");
+
+  if(!cartBox || !totalBox || !countBox) return;
+
   let total = 0;
   let html = "";
+
+  if(cart.length === 0){
+    cartBox.innerHTML = "Empty cart";
+    totalBox.innerText = "0";
+    countBox.innerText = "0";
+    return;
+  }
 
   cart.forEach((item,i)=>{
     total += item.prod_price * item.quantity;
@@ -288,9 +328,9 @@ function render(){
     `;
   });
 
-  document.getElementById("cart").innerHTML = html || "Empty cart";
-  document.getElementById("total").innerText = total;
-  document.getElementById("count").innerText = cart.length;
+  cartBox.innerHTML = html;
+  totalBox.innerText = total;
+  countBox.innerText = cart.length;
 }
 
 function checkout(){

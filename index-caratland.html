@@ -106,7 +106,7 @@ body{font-family:'Segoe UI';background:#fff;}
 <div class="col-lg-8">
 <div class="row">
 
-<!-- ALBUMS -->
+<!-- YOUR PRODUCTS (UNCHANGED) -->
 <div class="col-md-4 item albums">
 <div class="product">
 <img src="https://jsjuco2029.github.io/SVTALBUM1.png">
@@ -275,11 +275,12 @@ body{font-family:'Segoe UI';background:#fff;}
 
 <div class="col-lg-4">
 <div class="box">
+
 <h5>Cart (<span id="count">0</span>)</h5>
 <div id="cart"></div>
 <h6>Total: ₱<span id="total">0</span></h6>
 
-<<form id="checkoutForm"
+<form id="checkoutForm"
 method="GET"
 action="http://52.74.133.173/cs3/checkout.php"
 onsubmit="return checkout()">
@@ -292,6 +293,7 @@ onsubmit="return checkout()">
 
 <button class="btn btn-dark w-100">Checkout</button>
 </form>
+
 </div>
 </div>
 
@@ -299,6 +301,7 @@ onsubmit="return checkout()">
 </div>
 
 <script>
+
 let cart = [];
 
 function add(name, price){
@@ -357,11 +360,8 @@ function checkout(){
   return true;
 }
 
-  document.getElementById("cust_order").value = JSON.stringify(cart);
-  return true;
-}
-
 render();
+
 </script>
 
 </body>

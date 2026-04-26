@@ -31,6 +31,7 @@ body{
   background:#6fa8dc;
   padding:6px 12px;
   border-radius:20px;
+  font-size:14px;
 }
 
 .hero img{
@@ -85,7 +86,12 @@ body{
   border:none;
   padding:6px;
   width:100%;
+  margin-top:5px;
   cursor:pointer;
+}
+
+.btn2{
+  background:#6fa8dc;
 }
 
 .cart{
@@ -107,35 +113,26 @@ body{
   color:white;
   border:none;
   font-size:10px;
+  cursor:pointer;
 }
 
+/* MODAL */
 .modal{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  top:0;left:0;
+  width:100%;height:100%;
   background:rgba(0,0,0,0.5);
   display:none;
   justify-content:center;
   align-items:center;
 }
 
-.modal.active{
-  display:flex;
-}
-
-.modal-box{
-  background:white;
+.modal-content{
+  background:#fff;
   padding:20px;
   border-radius:10px;
+  width:300px;
   text-align:center;
-  width:250px;
-}
-
-.qty-controls button{
-  padding:5px 10px;
-  margin:5px;
 }
 </style>
 </head>
@@ -151,28 +148,124 @@ body{
   <img src="https://jsjuco2029.github.io/CARATLAND.png">
 </div>
 
-<div class="tabs">
-  <div class="tab" onclick="filter('all')">All</div>
-  <div class="tab" onclick="filter('albums')">Albums</div>
-  <div class="tab" onclick="filter('merch')">Merch</div>
-  <div class="tab" onclick="filter('miniteen')">MINITEEN</div>
-  <div class="tab" onclick="filter('media')">DVD/MEDIA</div>
-</div>
-
 <div class="container">
 
 <div class="products">
 
+<!-- ALBUMS -->
 <div class="card" data-type="albums">
 <img src="https://jsjuco2029.github.io/SVTALBUM1.png">
 <p>HAPPY BURSTDAY</p><p>₱2801</p>
-<button class="btn" onclick="add('HAPPY BURSTDAY',2801)">Add</button>
+<button class="btn" onclick="openModal('HAPPY BURSTDAY',2801)">Add</button>
+<button class="btn btn2" onclick="purchase('HAPPY BURSTDAY',2801)">Purchase</button>
 </div>
 
 <div class="card" data-type="albums">
 <img src="https://jsjuco2029.github.io/SVTALBUM2.png">
 <p>SPILL THE FEELS</p><p>₱2703</p>
-<button class="btn" onclick="add('SPILL THE FEELS',2703)">Add</button>
+<button class="btn" onclick="openModal('SPILL THE FEELS',2703)">Add</button>
+<button class="btn btn2" onclick="purchase('SPILL THE FEELS',2703)">Purchase</button>
+</div>
+
+<div class="card" data-type="albums">
+<img src="https://jsjuco2029.github.io/SVTALBUM3.png">
+<p>FML</p><p>₱2514</p>
+<button class="btn" onclick="openModal('FML',2514)">Add</button>
+<button class="btn btn2" onclick="purchase('FML',2514)">Purchase</button>
+</div>
+
+<div class="card" data-type="albums">
+<img src="https://jsjuco2029.github.io/SVTALBUM4.png">
+<p>17 CARAT</p><p>₱447</p>
+<button class="btn" onclick="openModal('17 CARAT',447)">Add</button>
+<button class="btn btn2" onclick="purchase('17 CARAT',447)">Purchase</button>
+</div>
+
+<div class="card" data-type="albums">
+<img src="https://jsjuco2029.github.io/SVTALBUM5.png">
+<p>ATTACCA</p><p>₱2323</p>
+<button class="btn" onclick="openModal('ATTACCA',2323)">Add</button>
+<button class="btn btn2" onclick="purchase('ATTACCA',2323)">Purchase</button>
+</div>
+
+<!-- MERCH -->
+<div class="card" data-type="merch">
+<img src="https://jsjuco2029.github.io/SVTMERCH1.png">
+<p>MINGYU Pan</p><p>₱2388</p>
+<button class="btn" onclick="openModal('MINGYU Pan',2388)">Add</button>
+<button class="btn btn2" onclick="purchase('MINGYU Pan',2388)">Purchase</button>
+</div>
+
+<div class="card" data-type="merch">
+<img src="https://jsjuco2029.github.io/SVTMERCH2.png">
+<p>WONWOO Keyboard</p><p>₱5210</p>
+<button class="btn" onclick="openModal('WONWOO Keyboard',5210)">Add</button>
+<button class="btn btn2" onclick="purchase('WONWOO Keyboard',5210)">Purchase</button>
+</div>
+
+<div class="card" data-type="merch">
+<img src="https://jsjuco2029.github.io/SVTMERCH3.png">
+<p>Light Stick Keyring</p><p>₱955</p>
+<button class="btn" onclick="openModal('Light Stick Keyring',955)">Add</button>
+<button class="btn btn2" onclick="purchase('Light Stick Keyring',955)">Purchase</button>
+</div>
+
+<div class="card" data-type="merch">
+<img src="https://jsjuco2029.github.io/SVTMERCH4.png">
+<p>Light Stick Ver.3</p><p>₱2127</p>
+<button class="btn" onclick="openModal('Light Stick Ver.3',2127)">Add</button>
+<button class="btn btn2" onclick="purchase('Light Stick Ver.3',2127)">Purchase</button>
+</div>
+
+<div class="card" data-type="merch">
+<img src="https://jsjuco2029.github.io/SVTMERCH5.png">
+<p>Seungkwan Badminton Set</p><p>₱5384</p>
+<button class="btn" onclick="openModal('Seungkwan Badminton Set',5384)">Add</button>
+<button class="btn btn2" onclick="purchase('Seungkwan Badminton Set',5384)">Purchase</button>
+</div>
+
+<!-- MINITEEN -->
+<div class="card" data-type="miniteen">
+<img src="https://jsjuco2029.github.io/MINITEEN1.png">
+<p>Binder</p><p>₱1256</p>
+<button class="btn" onclick="openModal('Binder',1256)">Add</button>
+<button class="btn btn2" onclick="purchase('Binder',1256)">Purchase</button>
+</div>
+
+<div class="card" data-type="miniteen">
+<img src="https://jsjuco2029.github.io/MINITEEN2.png">
+<p>Umbrella</p><p>₱1520</p>
+<button class="btn" onclick="openModal('Umbrella',1520)">Add</button>
+<button class="btn btn2" onclick="purchase('Umbrella',1520)">Purchase</button>
+</div>
+
+<div class="card" data-type="miniteen">
+<img src="https://jsjuco2029.github.io/MINITEEN3.png">
+<p>Sticker Set</p><p>₱390</p>
+<button class="btn" onclick="openModal('Sticker Set',390)">Add</button>
+<button class="btn btn2" onclick="purchase('Sticker Set',390)">Purchase</button>
+</div>
+
+<div class="card" data-type="miniteen">
+<img src="https://jsjuco2029.github.io/MINITEEN4.png">
+<p>Light Stick Strap Set</p><p>₱1520</p>
+<button class="btn" onclick="openModal('Light Stick Strap Set',1520)">Add</button>
+<button class="btn btn2" onclick="purchase('Light Stick Strap Set',1520)">Purchase</button>
+</div>
+
+<div class="card" data-type="miniteen">
+<img src="https://jsjuco2029.github.io/MINITEEN5.png">
+<p>L Holder Set</p><p>₱390</p>
+<button class="btn" onclick="openModal('L Holder Set',390)">Add</button>
+<button class="btn btn2" onclick="purchase('L Holder Set',390)">Purchase</button>
+</div>
+
+<!-- MEDIA -->
+<div class="card" data-type="media">
+<img src="https://jsjuco2029.github.io/media1.png">
+<p>World Tour DVD</p><p>₱2690</p>
+<button class="btn" onclick="openModal('World Tour DVD',2690)">Add</button>
+<button class="btn btn2" onclick="purchase('World Tour DVD',2690)">Purchase</button>
 </div>
 
 </div>
@@ -182,169 +275,102 @@ body{
 <div id="cart"></div>
 <h4>Total: ₱<span id="total">0</span></h4>
 
-<form method="GET"
-action="http://52.74.133.173/cs3/checkout.php"
-onsubmit="return checkout()">
-
+<form method="GET" action="http://52.74.133.173/cs3/checkout.php" onsubmit="return checkout()">
 <input name="cust_name" placeholder="Name" required><br><br>
 <input name="cust_addr" placeholder="Address" required><br><br>
 <input name="cust_email" placeholder="Email" required><br><br>
-
 <input type="hidden" name="cust_order" id="cust_order">
-
-<button type="submit" class="btn">Checkout</button>
+<button class="btn" type="submit">Checkout</button>
 </form>
 
 </div>
 </div>
 
-<div class="modal" id="quantityModal">
-  <div class="modal-box">
-    <h3 id="modalProductName"></h3>
-
-    <div class="qty-controls">
-      <button onclick="adjustQty(-1)">-</button>
-      <span id="modalQty">1</span>
-      <button onclick="adjustQty(1)">+</button>
-    </div>
-
-    <br>
-
-    <button class="btn" onclick="confirmAdd()">Confirm</button>
-    <button onclick="closeModal()">Close</button>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3 id="pname"></h3>
+    <p>Qty</p>
+    <button onclick="qty(-1)">-</button>
+    <span id="qty">1</span>
+    <button onclick="qty(1)">+</button>
+    <br><br>
+    <button class="btn" onclick="confirm()">Confirm</button>
   </div>
 </div>
 
 <script>
-let cart = JSON.parse(localStorage.getItem('caratCart')) || [];
-let modalProduct = null;
-let modalQty = 1;
+let cart = JSON.parse(localStorage.getItem("caratCart")) || [];
+let current = null;
+let qtyVal = 1;
 
-function add(name, price){
-  modalProduct = { name, price };
-  modalQty = 1;
-
-  const existing = cart.find(i => i.prod_name === name);
-  if(existing) modalQty = existing.quantity;
-
-  const nameBox = document.getElementById("modalProductName");
-  const qtyBox = document.getElementById("modalQty");
-  const modal = document.getElementById("quantityModal");
-
-  if(nameBox && qtyBox && modal){
-    nameBox.innerText = name;
-    qtyBox.innerText = modalQty;
-    modal.classList.add("active");
-  } else {
-    quickAdd();
-  }
+function openModal(name, price){
+  current = {name, price};
+  qtyVal = 1;
+  document.getElementById("pname").innerText = name;
+  document.getElementById("qty").innerText = qtyVal;
+  document.getElementById("modal").style.display="flex";
 }
 
-function quickAdd(){
-  const index = cart.findIndex(i => i.prod_name === modalProduct.name);
-
-  if(index >= 0){
-    cart[index].quantity += 1;
-  } else {
-    cart.push({
-      prod_name: modalProduct.name,
-      prod_price: modalProduct.price,
-      quantity: 1
-    });
-  }
-
-  save();
-  render();
+function purchase(name, price){
+  openModal(name, price);
 }
 
-function closeModal(){
-  const modal = document.getElementById("quantityModal");
-  if(modal) modal.classList.remove("active");
-  modalProduct = null;
+function qty(x){
+  qtyVal += x;
+  if(qtyVal < 1) qtyVal = 1;
+  document.getElementById("qty").innerText = qtyVal;
 }
 
-function adjustQty(x){
-  modalQty += x;
-  if(modalQty < 1) modalQty = 1;
-  const qtyBox = document.getElementById("modalQty");
-  if(qtyBox) qtyBox.innerText = modalQty;
-}
+function confirm(){
+  cart.push({
+    prod_name: current.name,
+    prod_price: current.price,
+    quantity: qtyVal
+  });
 
-function confirmAdd(){
-  if(!modalProduct) return;
-
-  const index = cart.findIndex(i => i.prod_name === modalProduct.name);
-
-  if(index >= 0){
-    cart[index].quantity = modalQty;
-  } else {
-    cart.push({
-      prod_name: modalProduct.name,
-      prod_price: modalProduct.price,
-      quantity: modalQty
-    });
-  }
-
-  save();
-  render();
-  closeModal();
-}
-
-function removeItem(i){
-  cart.splice(i,1);
-  save();
-  render();
-}
-
-function save(){
   localStorage.setItem("caratCart", JSON.stringify(cart));
+  render();
+  document.getElementById("modal").style.display="none";
 }
 
 function render(){
-  const cartBox = document.getElementById("cart");
-  const totalBox = document.getElementById("total");
-  const countBox = document.getElementById("count");
-
-  if(!cartBox || !totalBox || !countBox) return;
-
+  let c = document.getElementById("cart");
   let total = 0;
-  let html = "";
 
-  if(cart.length === 0){
-    cartBox.innerHTML = "Empty cart";
-    totalBox.innerText = "0";
-    countBox.innerText = "0";
-    return;
-  }
+  c.innerHTML = "";
 
-  cart.forEach((item,i)=>{
-    total += item.prod_price * item.quantity;
+  cart.forEach((i,idx)=>{
+    total += i.prod_price * i.quantity;
 
-    html += `
+    c.innerHTML += `
       <div class="item">
-        ${item.prod_name} (x${item.quantity})
-        <button class="remove" onclick="removeItem(${i})">x</button>
+        ${i.prod_name} x${i.quantity}
+        <button class="remove" onclick="removeItem(${idx})">x</button>
       </div>
     `;
   });
 
-  cartBox.innerHTML = html;
-  totalBox.innerText = total;
-  countBox.innerText = cart.length;
+  document.getElementById("total").innerText = total;
+  document.getElementById("count").innerText = cart.length;
+}
+
+function removeItem(i){
+  cart.splice(i,1);
+  localStorage.setItem("caratCart", JSON.stringify(cart));
+  render();
 }
 
 function checkout(){
-  if(cart.length === 0){
-    alert("Cart is empty!");
+  if(cart.length===0){
+    alert("Cart empty!");
     return false;
   }
 
-  let order = cart.map(i => ({
-    prod_name: i.quantity > 1 ? i.prod_name + " (x" + i.quantity + ")" : i.prod_name,
-    prod_price: i.prod_price * i.quantity
-  }));
-
-  document.getElementById("cust_order").value = JSON.stringify(order);
+  document.getElementById("cust_order").value =
+    JSON.stringify(cart.map(i=>({
+      prod_name: i.prod_name,
+      prod_price: i.prod_price * i.quantity
+    })));
 
   return true;
 }

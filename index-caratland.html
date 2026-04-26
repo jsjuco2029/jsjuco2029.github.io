@@ -294,7 +294,18 @@ onsubmit="return checkout()">
 let cart = [];
 
 function add(name, price){
-  cart.push({ prod_name: name, prod_price: price, quantity: 1 });
+  const existing = cart.find(item => item.prod_name === name);
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({
+      prod_name: name,
+      prod_price: price,
+      quantity: 1
+    });
+  }
+
   render();
 }
 
@@ -303,12 +314,15 @@ function render(){
   let html = "";
 
   for(let i = 0; i < cart.length; i++){
-
-    total += cart[i].prod_price * cart[i].quantity;
+    const itemTotal = cart[i].prod_price * cart[i].quantity;
+    total += itemTotal;
 
     html += `
       <div class="item">
-        ${cart[i].prod_name} ₱${cart[i].prod_price}
+        <div>
+          ${cart[i].prod_name} 
+          (x${cart[i].quantity}) - ₱${itemTotal}
+        </div>
         <button class="remove" onclick="removeItem(${i})">x</button>
       </div>
     `;
@@ -328,30 +342,33 @@ function filter(type){
   let cards = document.querySelectorAll(".card");
 
   for(let i = 0; i < cards.length; i++){
-    if(type == "all") cards[i].style.display = "block";
-    else cards[i].style.display = cards[i].dataset.type == type ? "block" : "none";
+    if(type === "all") {
+      cards[i].style.display = "block";
+    } else {
+      cards[i].style.display = cards[i].dataset.type === type ? "block" : "none";
+    }
   }
 }
 
+/* ✅ THIS IS THE IMPORTANT PART (CHECKOUT INTEGRATION) */
 function checkout(){
 
-  // ❗ BLOCK EMPTY CART
   if(cart.length === 0){
     alert("Cart is empty!");
     return false;
   }
 
-  // ✅ SAME LOGIC AS ANALOG APPLE
+  // Build order exactly like Analog Apple format
   let orderData = cart.map(item => ({
-    prod_name: item.quantity > 1 
-      ? item.prod_name + " (Qty: " + item.quantity + ")" 
+    prod_name: item.quantity > 1
+      ? item.prod_name + " (Qty: " + item.quantity + ")"
       : item.prod_name,
     prod_price: item.prod_price * item.quantity
   }));
 
   document.getElementById("cust_order").value = JSON.stringify(orderData);
 
-  return true;
+  return true; // allow GET submit
 }
 </script>
 

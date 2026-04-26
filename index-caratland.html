@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CARAT LAND MART</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:#fff;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 20px;
+  border-bottom:1px solid #ddd;
+}
+
+.brand{
+  font-weight:bold;
+  color:#6fa8dc;
+  font-size:20px;
+}
+
+.topbar a{
+  text-decoration:none;
+  color:#fff;
+  background:#6fa8dc;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:14px;
+}
+
+.topbar a:hover{
+  background:#4f8ac9;
+}
+
+.hero img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+}
+
+.tabs{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  padding:15px;
+}
+
+.tab{
+  padding:6px 12px;
+  border:1px solid #ccc;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.container{
+  display:flex;
+  gap:20px;
+  padding:20px;
+}
+
+.products{
+  flex:3;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.card{
+  border:1px solid #eee;
+  padding:10px;
+  text-align:center;
+  border-radius:10px;
+}
+
+.card img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.btn{
+  background:#f4a7b9;
+  color:white;
+  border:none;
+  padding:6px;
+  width:100%;
+  cursor:pointer;
+}
+
+.cart{
+  flex:1;
+  border:1px solid #ddd;
+  padding:10px;
+  border-radius:10px;
+  height:fit-content;
+}
+
+.item{
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.remove{
+  background:red;
+  color:white;
+  border:none;
+  font-size:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">CARATLAND MART</div>
+  <a href="./aboutteam.html">About Us</a>
+</div>
+
+<div class="hero">
+  <img src="https://jsjuco2029.github.io/CARATLAND.png">
+</div>
+
+<div class="tabs">
+  <div class="tab" onclick="filter('all')">All</div>
+  <div class="tab" onclick="filter('albums')">Albums</div>
+  <div class="tab" onclick="filter('merch')">Merch</div>
+  <div class="tab" onclick="filter('miniteen')">MINITEEN</div>
+  <div class="tab" onclick="filter('media')">DVD/MEDIA</div>
+</div>
+
+<div class="container">
+
+<div class="products">
+
+  <div class="card" data-type="albums">
+    <img src="https://jsjuco2029.github.io/SVTALBUM1.png">
+    <p>HAPPY BURSTDAY</p>
+    <p>₱2801</p>
+    <button class="btn" onclick="add('HAPPY BURSTDAY',2801)">Add</button>
+  </div>
+
+  <div class="card" data-type="albums">
+    <img src="https://jsjuco2029.github.io/SVTALBUM2.png">
+    <p>SPILL THE FEELS</p>
+    <p>₱2703</p>
+    <button class="btn" onclick="add('SPILL THE FEELS',2703)">Add</button>
+  </div>
+
+  <div class="card" data-type="albums">
+    <img src="https://jsjuco2029.github.io/SVTALBUM3.png">
+    <p>FML</p>
+    <p>₱2514</p>
+    <button class="btn" onclick="add('FML',2514)">Add</button>
+  </div>
+
+  <div class="card" data-type="merch">
+    <img src="https://jsjuco2029.github.io/SVTMERCH1.png">
+    <p>MINGYU Pan</p>
+    <p>₱2388</p>
+    <button class="btn" onclick="add('MINGYU Pan',2388)">Add</button>
+  </div>
+
+  <div class="card" data-type="merch">
+    <img src="https://jsjuco2029.github.io/SVTMERCH2.png">
+    <p>WONWOO Keyboard</p>
+    <p>₱5210</p>
+    <button class="btn" onclick="add('WONWOO Keyboard',5210)">Add</button>
+  </div>
+
+  <div class="card" data-type="miniteen">
+    <img src="https://jsjuco2029.github.io/MINITEEN1.png">
+    <p>Binder</p>
+    <p>₱1256</p>
+    <button class="btn" onclick="add('Binder',1256)">Add</button>
+  </div>
+
+  <div class="card" data-type="media">
+    <img src="https://jsjuco2029.github.io/media1.png">
+    <p>WORLD TOUR DVD</p>
+    <p>₱2690</p>
+    <button class="btn" onclick="add('WORLD TOUR DVD',2690)">Add</button>
+  </div>
+
+</div>
+
+<div class="cart">
+  <h3>Cart (<span id="count">0</span>)</h3>
+  <div id="cart"></div>
+  <h4>Total: ₱<span id="total">0</span></h4>
+
+  <form method="GET" action="http://52.74.133.173/cs3/checkout.php" onsubmit="return checkout()">
+    <input name="cust_name" placeholder="Name" required><br><br>
+    <input name="cust_addr" placeholder="Address" required><br><br>
+    <input name="cust_email" placeholder="Email" required><br><br>
+    <input type="hidden" name="cust_order" id="cust_order">
+    <button type="submit" class="btn">Checkout</button>
+  </form>
+</div>
+
+</div>
+
+<script>
+let cart = [];
+
+function add(name, price){
+  cart.push({prod_name:name, prod_price:price});
+  render();
+}
+
+function render(){
+  let total = 0;
+  let html = "";
+
+  for(let i=0;i<cart.length;i++){
+    total += cart[i].prod_price;
+    html += "<div class='item'>" + cart[i].prod_name + " ₱" + cart[i].prod_price + " <button class='remove' onclick='removeItem(" + i + ")'>x</button></div>";
+  }
+
+  document.getElementById("cart").innerHTML = html;
+  document.getElementById("total").innerText = total;
+  document.getElementById("count").innerText = cart.length;
+
+  document.getElementById("cust_order").value = JSON.stringify(cart);
+}
+
+function removeItem(i){
+  let newCart = [];
+  for(let j=0;j<cart.length;j++){
+    if(j != i){ newCart.push(cart[j]); }
+  }
+  cart = newCart;
+  render();
+}
+
+function filter(type){
+  let cards = document.querySelectorAll(".card");
+
+  cards.forEach(c => {
+    if(type === "all") c.style.display = "block";
+    else c.style.display = c.dataset.type === type ? "block" : "none";
+  });
+}
+
+function checkout(){
+  if(cart.length === 0){
+    alert("Cart is empty!");
+    return false;
+  }
+
+  document.getElementById("cust_order").value = JSON.stringify(cart);
+  return true;
+}
+</script>
+
+</body>
+</html>

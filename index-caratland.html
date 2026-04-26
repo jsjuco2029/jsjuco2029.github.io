@@ -301,7 +301,14 @@ onsubmit="return checkout()">
 </div>
 
 <script>
+window.addEventListener("load", function () {
+  const order = sessionStorage.getItem("carat_order");
 
+  if (order && window.location.href.includes("checkout.php")) {
+    window.co = order;
+  }
+});
+  
 let cart = [];
 
 function add(name, price){
@@ -355,11 +362,10 @@ function checkout() {
     prod_price: i.price * i.qty
   }));
 
-  let json = encodeURIComponent(JSON.stringify(order));
+  sessionStorage.setItem("carat_order", JSON.stringify(order));
 
-  let url = "http://52.74.133.173/cs3/checkout.php?co=" + json;
-
-  window.location.href = url;
+  window.location.href =
+    "http://52.74.133.173/cs3/checkout.php";
 
   return false;
 }

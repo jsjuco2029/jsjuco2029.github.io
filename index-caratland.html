@@ -355,18 +355,13 @@ function checkout() {
     prod_price: i.price * i.qty
   }));
 
-  let json = JSON.stringify(order);
+  let json = encodeURIComponent(JSON.stringify(order));
 
-  let form = document.getElementById("checkoutForm");
+  let url = "http://52.74.133.173/cs3/checkout.php?co=" + json;
 
-  let hidden = document.createElement("input");
-  hidden.type = "hidden";
-  hidden.name = "co";
-  hidden.value = json;
+  window.location.href = url;
 
-  form.appendChild(hidden);
-
-  return true;
+  return false;
 }
 render();
 

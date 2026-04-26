@@ -31,11 +31,6 @@ body{
   background:#6fa8dc;
   padding:6px 12px;
   border-radius:20px;
-  font-size:14px;
-}
-
-.topbar a:hover{
-  background:#4f8ac9;
 }
 
 .hero img{
@@ -56,7 +51,6 @@ body{
   border:1px solid #ccc;
   border-radius:20px;
   cursor:pointer;
-  font-size:14px;
 }
 
 .container{
@@ -83,7 +77,6 @@ body{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
-  border-radius:8px;
 }
 
 .btn{
@@ -100,7 +93,6 @@ body{
   border:1px solid #ddd;
   padding:10px;
   border-radius:10px;
-  height:fit-content;
 }
 
 .item{
@@ -115,6 +107,35 @@ body{
   color:white;
   border:none;
   font-size:10px;
+}
+
+.modal{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-box{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+  width:250px;
+}
+
+.qty-controls button{
+  padding:5px 10px;
+  margin:5px;
 }
 </style>
 </head>
@@ -142,8 +163,6 @@ body{
 
 <div class="products">
 
-<!-- (ALL YOUR CARDS REMAIN EXACTLY THE SAME — NOT REMOVED) -->
-<!-- ALBUMS -->
 <div class="card" data-type="albums">
 <img src="https://jsjuco2029.github.io/SVTALBUM1.png">
 <p>HAPPY BURSTDAY</p><p>₱2801</p>
@@ -156,117 +175,6 @@ body{
 <button class="btn" onclick="add('SPILL THE FEELS',2703)">Add</button>
 </div>
 
-<div class="card" data-type="albums">
-<img src="https://jsjuco2029.github.io/SVTALBUM3.png">
-<p>FML</p><p>₱2514</p>
-<button class="btn" onclick="add('FML',2514)">Add</button>
-</div>
-
-<div class="card" data-type="albums">
-<img src="https://jsjuco2029.github.io/SVTALBUM4.png">
-<p>17 CARAT</p><p>₱447</p>
-<button class="btn" onclick="add('17 CARAT',447)">Add</button>
-</div>
-
-<div class="card" data-type="albums">
-<img src="https://jsjuco2029.github.io/SVTALBUM5.png">
-<p>ATTACCA</p><p>₱2323</p>
-<button class="btn" onclick="add('ATTACCA',2323)">Add</button>
-</div>
-
-<!-- MERCH -->
-<div class="card" data-type="merch">
-<img src="https://jsjuco2029.github.io/SVTMERCH1.png">
-<p>MINGYU Pan</p><p>₱2388</p>
-<button class="btn" onclick="add('MINGYU Pan',2388)">Add</button>
-</div>
-
-<div class="card" data-type="merch">
-<img src="https://jsjuco2029.github.io/SVTMERCH2.png">
-<p>WONWOO Keyboard</p><p>₱5210</p>
-<button class="btn" onclick="add('WONWOO Keyboard',5210)">Add</button>
-</div>
-
-<div class="card" data-type="merch">
-<img src="https://jsjuco2029.github.io/SVTMERCH3.png">
-<p>Light Stick Keyring</p><p>₱955</p>
-<button class="btn" onclick="add('Light Stick Keyring',955)">Add</button>
-</div>
-
-<div class="card" data-type="merch">
-<img src="https://jsjuco2029.github.io/SVTMERCH4.png">
-<p>Light Stick Ver.3</p><p>₱2127</p>
-<button class="btn" onclick="add('Light Stick Ver.3',2127)">Add</button>
-</div>
-
-<div class="card" data-type="merch">
-<img src="https://jsjuco2029.github.io/SVTMERCH5.png">
-<p>Seungkwan Badminton Set</p><p>₱5384</p>
-<button class="btn" onclick="add('Seungkwan Badminton Set',5384)">Add</button>
-</div>
-
-<!-- MINITEEN -->
-<div class="card" data-type="miniteen">
-<img src="https://jsjuco2029.github.io/MINITEEN1.png">
-<p>Binder</p><p>₱1256</p>
-<button class="btn" onclick="add('Binder',1256)">Add</button>
-</div>
-
-<div class="card" data-type="miniteen">
-<img src="https://jsjuco2029.github.io/MINITEEN2.png">
-<p>Umbrella</p><p>₱1520</p>
-<button class="btn" onclick="add('Umbrella',1520)">Add</button>
-</div>
-
-<div class="card" data-type="miniteen">
-<img src="https://jsjuco2029.github.io/MINITEEN3.png">
-<p>Sticker Set</p><p>₱390</p>
-<button class="btn" onclick="add('Sticker Set',390)">Add</button>
-</div>
-
-<div class="card" data-type="miniteen">
-<img src="https://jsjuco2029.github.io/MINITEEN4.png">
-<p>Light Stick Strap Set</p><p>₱1520</p>
-<button class="btn" onclick="add('Light Stick Strap Set',1520)">Add</button>
-</div>
-
-<div class="card" data-type="miniteen">
-<img src="https://jsjuco2029.github.io/MINITEEN5.png">
-<p>L Holder Set</p><p>₱390</p>
-<button class="btn" onclick="add('L Holder Set',390)">Add</button>
-</div>
-
-<!-- MEDIA -->
-<div class="card" data-type="media">
-<img src="https://jsjuco2029.github.io/media1.png">
-<p>World Tour DVD</p><p>₱2690</p>
-<button class="btn" onclick="add('World Tour DVD',2690)">Add</button>
-</div>
-
-<div class="card" data-type="media">
-<img src="https://jsjuco2029.github.io/media2.png">
-<p>Hoshi Photobook</p><p>₱999</p>
-<button class="btn" onclick="add('Hoshi Photobook',999)">Add</button>
-</div>
-
-<div class="card" data-type="media">
-<img src="https://jsjuco2029.github.io/media3.png">
-<p>2025 Fan Meeting</p><p>₱2388</p>
-<button class="btn" onclick="add('2025 Fan Meeting',2388)">Add</button>
-</div>
-
-<div class="card" data-type="media">
-<img src="https://jsjuco2029.github.io/media4.png">
-<p>2024 Fan Meeting</p><p>₱2388</p>
-<button class="btn" onclick="add('2024 Fan Meeting',2388)">Add</button>
-</div>
-
-<div class="card" data-type="media">
-<img src="https://jsjuco2029.github.io/media5.png">
-<p>2023 Fan Meeting</p><p>₱2388</p>
-<button class="btn" onclick="add('2023 Fan Meeting',2388)">Add</button>
-</div>
-
 </div>
 
 <div class="cart">
@@ -275,7 +183,7 @@ body{
 <h4>Total: ₱<span id="total">0</span></h4>
 
 <form method="GET"
-action="https://52.74.133.173/cs3/checkout.php"
+action="http://52.74.133.173/cs3/checkout.php"
 onsubmit="return checkout()">
 
 <input name="cust_name" placeholder="Name" required><br><br>
@@ -290,150 +198,119 @@ onsubmit="return checkout()">
 </div>
 </div>
 
+<div class="modal" id="quantityModal">
+  <div class="modal-box">
+    <h3 id="modalProductName"></h3>
+
+    <div class="qty-controls">
+      <button onclick="adjustQty(-1)">-</button>
+      <span id="modalQty">1</span>
+      <button onclick="adjustQty(1)">+</button>
+    </div>
+
+    <br>
+
+    <button class="btn" onclick="confirmAdd()">Confirm</button>
+    <button onclick="closeModal()">Close</button>
+  </div>
+</div>
+
 <script>
 let cart = JSON.parse(localStorage.getItem('caratCart')) || [];
-
 let modalProduct = null;
-let modalQuantity = 1;
+let modalQty = 1;
 
-/* ======================
-   ADD BUTTON → OPEN MODAL
-====================== */
-function add(name, price) {
+function add(name, price){
   const existing = cart.find(i => i.prod_name === name);
 
   modalProduct = { name, price };
-  modalQuantity = existing ? existing.quantity : 1;
+  modalQty = existing ? existing.quantity : 1;
 
-  document.getElementById('modalProductName').textContent = name;
-  document.getElementById('modalQty').textContent = modalQuantity;
+  document.getElementById("modalProductName").innerText = name;
+  document.getElementById("modalQty").innerText = modalQty;
 
-  document.getElementById('quantityModal').classList.add('active');
+  document.getElementById("quantityModal").classList.add("active");
 }
 
-/* ======================
-   CLOSE MODAL
-====================== */
-function closeModal() {
-  document.getElementById('quantityModal').classList.remove('active');
+function closeModal(){
+  document.getElementById("quantityModal").classList.remove("active");
   modalProduct = null;
 }
 
-/* ======================
-   QUANTITY CONTROL
-====================== */
-function adjustModalQty(change) {
-  modalQuantity += change;
-  if (modalQuantity < 1) modalQuantity = 1;
-  document.getElementById('modalQty').textContent = modalQuantity;
+function adjustQty(x){
+  modalQty += x;
+  if(modalQty < 1) modalQty = 1;
+  document.getElementById("modalQty").innerText = modalQty;
 }
 
-/* ======================
-   CONFIRM ADD TO CART
-====================== */
-function confirmAddToCart() {
-  if (!modalProduct) return;
+function confirmAdd(){
+  if(!modalProduct) return;
 
   const index = cart.findIndex(i => i.prod_name === modalProduct.name);
 
-  if (index >= 0) {
-    cart[index].quantity = modalQuantity;
-    if (cart[index].quantity <= 0) cart.splice(index, 1);
+  if(index >= 0){
+    cart[index].quantity = modalQty;
   } else {
     cart.push({
       prod_name: modalProduct.name,
       prod_price: modalProduct.price,
-      quantity: modalQuantity
+      quantity: modalQty
     });
   }
 
-  saveCart();
-  renderCart();
+  save();
+  render();
   closeModal();
 }
 
-/* ======================
-   REMOVE ITEM
-====================== */
-function removeItem(i) {
-  cart.splice(i, 1);
-  saveCart();
-  renderCart();
+function removeItem(i){
+  cart.splice(i,1);
+  save();
+  render();
 }
 
-/* ======================
-   SAVE CART (LOCAL STORAGE)
-====================== */
-function saveCart() {
-  localStorage.setItem('caratCart', JSON.stringify(cart));
+function save(){
+  localStorage.setItem("caratCart", JSON.stringify(cart));
 }
 
-/* ======================
-   RENDER CART
-====================== */
-function renderCart() {
-  const cartBox = document.getElementById("cart");
-  const totalBox = document.getElementById("total");
-  const countBox = document.getElementById("count");
-
+function render(){
   let total = 0;
   let html = "";
 
-  if (cart.length === 0) {
-    cartBox.innerHTML = "<p>Cart is empty</p>";
-    totalBox.innerText = "0";
-    countBox.innerText = "0";
-    return;
-  }
-
-  for (let i = 0; i < cart.length; i++) {
-    let item = cart[i];
-    let itemTotal = item.prod_price * item.quantity;
-    total += itemTotal;
+  cart.forEach((item,i)=>{
+    total += item.prod_price * item.quantity;
 
     html += `
       <div class="item">
-        <div>
-          ${item.prod_name} (x${item.quantity}) - ₱${itemTotal}
-        </div>
+        ${item.prod_name} (x${item.quantity})
         <button class="remove" onclick="removeItem(${i})">x</button>
       </div>
     `;
-  }
+  });
 
-  cartBox.innerHTML = html;
-  totalBox.innerText = total;
-  countBox.innerText = cart.length;
+  document.getElementById("cart").innerHTML = html || "Empty cart";
+  document.getElementById("total").innerText = total;
+  document.getElementById("count").innerText = cart.length;
 }
 
-/* ======================
-   CHECKOUT (SEND TO SERVER)
-====================== */
-function checkout() {
-  if (cart.length === 0) {
+function checkout(){
+  if(cart.length === 0){
     alert("Cart is empty!");
     return false;
   }
 
-  const orderData = cart.map(item => ({
-    prod_name: item.quantity > 1
-      ? item.prod_name + " (Qty: " + item.quantity + ")"
-      : item.prod_name,
-    prod_price: item.prod_price * item.quantity
+  let order = cart.map(i => ({
+    prod_name: i.quantity > 1 ? i.prod_name + " (x" + i.quantity + ")" : i.prod_name,
+    prod_price: i.prod_price * i.quantity
   }));
 
-  document.getElementById("cust_order").value = JSON.stringify(orderData);
+  document.getElementById("cust_order").value = JSON.stringify(order);
 
-  localStorage.removeItem('caratCart');
   return true;
 }
 
-/* ======================
-   INIT ON LOAD
-====================== */
-document.addEventListener("DOMContentLoaded", function () {
-  renderCart();
-});
+render();
 </script>
+
 </body>
 </html>

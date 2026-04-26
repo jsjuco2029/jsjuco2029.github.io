@@ -303,7 +303,8 @@ function render(){
   let html = "";
 
   for(let i = 0; i < cart.length; i++){
-    total += cart[i].prod_price;
+
+    total += cart[i].prod_price * cart[i].quantity;
 
     html += `
       <div class="item">
@@ -334,9 +335,18 @@ function filter(type){
 
 function checkout(){
 
+  // ❗ BLOCK EMPTY CART
+  if(cart.length === 0){
+    alert("Cart is empty!");
+    return false;
+  }
+
+  // ✅ SAME LOGIC AS ANALOG APPLE
   let orderData = cart.map(item => ({
-    prod_name: item.prod_name,
-    prod_price: item.prod_price
+    prod_name: item.quantity > 1 
+      ? item.prod_name + " (Qty: " + item.quantity + ")" 
+      : item.prod_name,
+    prod_price: item.prod_price * item.quantity
   }));
 
   document.getElementById("cust_order").value = JSON.stringify(orderData);

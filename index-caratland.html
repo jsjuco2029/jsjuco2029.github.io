@@ -302,16 +302,7 @@ body{font-family:'Segoe UI';background:#fff;}
 
 </div>
 </div>
-
 <script>
-window.addEventListener("load", function () {
-  const order = sessionStorage.getItem("carat_order");
-
-  if (order && window.location.href.includes("checkout.php")) {
-    window.co = order;
-  }
-});
-  
 let cart = [];
 
 function add(name, price){
@@ -350,7 +341,8 @@ function filter(type){
   let items = document.getElementsByClassName("item");
 
   for(let i=0;i<items.length;i++){
-    items[i].style.display = (type==="all" || items[i].classList.contains(type)) ? "block" : "none";
+    items[i].style.display =
+      (type==="all" || items[i].classList.contains(type)) ? "block" : "none";
   }
 }
 
@@ -361,15 +353,14 @@ function checkout() {
   }
 
   let orderData = cart.map(item => ({
-    prod_name: item.prod_name + " x" + item.quantity,
-    prod_price: item.prod_price * item.quantity
+    prod_name: item.name + " x" + item.qty,
+    prod_price: item.price * item.qty
   }));
-
-  let json = encodeURIComponent(JSON.stringify(orderData));
 
   let name = encodeURIComponent(document.querySelector('[name="cust_name"]').value);
   let addr = encodeURIComponent(document.querySelector('[name="cust_addr"]').value);
   let email = encodeURIComponent(document.querySelector('[name="cust_email"]').value);
+  let json = encodeURIComponent(JSON.stringify(orderData));
 
   window.location.href =
     "http://52.74.133.173/cs3/checkout.php"
@@ -380,9 +371,8 @@ function checkout() {
 
   return false;
 }
+
 render();
-
-</script>
-
+  </script>
 </body>
 </html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CARATLAND MART</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+<style>
+body{
+  font-family:'Segoe UI';
+  background:#fafafa;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  padding:12px 20px;
+  background:white;
+  border-bottom:1px solid #eee;
+}
+
+.brand{font-weight:900;color:#6fa8dc;}
+
+.hero img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+}
+
+/* TABS */
+.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:15px;
+}
+
+.tab{
+  border:1px solid #ddd;
+  padding:6px 14px;
+  border-radius:20px;
+  cursor:pointer;
+  background:white;
+  transition:0.2s;
+}
+
+/* FIX: active tab style */
+.tab.active{
+  background:#6fa8dc;
+  color:white;
+  border-color:#6fa8dc;
+}
+
+.product{
+  border:1px solid #eee;
+  padding:10px;
+  border-radius:12px;
+  background:white;
+  text-align:center;
+}
+
+.product img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.btn-svt{
+  width:100%;
+  background:#f4a7b9;
+  border:none;
+  color:white;
+  padding:6px;
+  border-radius:6px;
+}
+
+.box{
+  background:white;
+  border:1px solid #eee;
+  padding:12px;
+  border-radius:12px;
+  position:sticky;
+  top:10px;
+}
+
+.item{
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+.remove{
+  background:#ff4d4d;
+  border:none;
+  color:white;
+  font-size:12px;
+  border-radius:4px;
+}
+
+/* MODAL */
+.modal-bg{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.modal-bg.active{display:flex;}
+
+.modal-box{
+  width:340px;
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  text-align:center;
+}
+
+.qty{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin:15px 0;
+}
+
+.qty button{
+  width:40px;height:40px;
+  border-radius:50%;
+  border:none;
+  background:#6fa8dc;
+  color:white;
+}
+
+.add-btn,.cancel-btn{
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  margin-top:8px;
+}
+
+.add-btn{background:#f4a7b9;color:white;}
+.cancel-btn{background:#eee;}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="brand">CARATLAND MART</div>
+  <a href="aboutteam.html">About Us</a>
+</div>
+
+<div class="hero">
+  <img src="https://jsjuco2029.github.io/CARATLAND.png">
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="show('all', this)">All</div>
+  <div class="tab" onclick="show('albums', this)">Albums</div>
+  <div class="tab" onclick="show('merch', this)">Merch</div>
+  <div class="tab" onclick="show('MINITEEN', this)">MINITEEN</div>
+  <div class="tab" onclick="show('dvd', this)">DVD/MEDIA</div>
+</div>
+
+<div class="container-fluid">
+<div class="row">
+
+<div class="col-lg-8">
+<div class="row">
+
+
+<div class="col-md-4 item albums"><div class="product"><img src="https://jsjuco2029.github.io/SVTALBUM1.png"><p>5th Album 'HAPPY BURSTDAY' (Set)</p><p>₱2801</p><button class="btn-svt" onclick="openModal('5th Album HAPPY BURSTDAY (Set)',2801)">Add</button></div></div>
+
+<div class="col-md-4 item albums"><div class="product"><img src="https://jsjuco2029.github.io/SVTALBUM2.png"><p>12th Mini Album 'SPILL THE FEELS' (Set)</p><p>₱2703</p><button class="btn-svt" onclick="openModal('12th Mini Album SPILL THE FEELS (Set)',2703)">Add</button></div></div>
+
+<div class="col-md-4 item albums"><div class="product"><img src="https://jsjuco2029.github.io/SVTALBUM3.png"><p>10th Mini Album 'FML' (Set)</p><p>₱2514</p><button class="btn-svt" onclick="openModal('10th Mini Album FML (Set)',2514)">Add</button></div></div>
+
+<div class="col-md-4 item albums"><div class="product"><img src="https://jsjuco2029.github.io/SVTALBUM4.png"><p>1st Mini Album '17 CARAT'</p><p>₱447</p><button class="btn-svt" onclick="openModal('1st Mini Album 17 CARAT',447)">Add</button></div></div>
+
+<div class="col-md-4 item albums"><div class="product"><img src="https://jsjuco2029.github.io/SVTALBUM5.png"><p>9th Mini Album [Attacca] (Set)</p><p>₱2323</p><button class="btn-svt" onclick="openModal('9th Mini Album Attacca (Set)',2323)">Add</button></div></div>
+
+<div class="col-md-4 item merch"><div class="product"><img src="https://jsjuco2029.github.io/SVTMERCH1.png"><p>[MINGYU] Pan</p><p>₱2388</p><button class="btn-svt" onclick="openModal('MINGYU Pan',2388)">Add</button></div></div>
+
+<div class="col-md-4 item merch"><div class="product"><img src="https://jsjuco2029.github.io/SVTMERCH2.png"><p>[WONWOO] Keyboard</p><p>₱5210</p><button class="btn-svt" onclick="openModal('WONWOO Keyboard',5210)">Add</button></div></div>
+
+<div class="col-md-4 item merch"><div class="product"><img src="https://jsjuco2029.github.io/SVTMERCH3.png"><p>Light Stick Keyring</p><p>₱955</p><button class="btn-svt" onclick="openModal('Light Stick Keyring',955)">Add</button></div></div>
+
+<div class="col-md-4 item merch"><div class="product"><img src="https://jsjuco2029.github.io/SVTMERCH4.png"><p>Light Stick Ver.3</p><p>₱2127</p><button class="btn-svt" onclick="openModal('Light Stick Ver.3',2127)">Add</button></div></div>
+
+<div class="col-md-4 item merch"><div class="product"><img src="https://jsjuco2029.github.io/SVTMERCH5.png"><p>Seungkwan Badminton Set</p><p>₱5384</p><button class="btn-svt" onclick="openModal('Seungkwan Badminton Set',5384)">Add</button></div></div>
+
+<div class="col-md-4 item MINITEEN"><div class="product"><img src="https://jsjuco2029.github.io/MINITEEN1.png"><p>Binder</p><p>₱1256</p><button class="btn-svt" onclick="openModal('Binder',1256)">Add</button></div></div>
+
+<div class="col-md-4 item MINITEEN"><div class="product"><img src="https://jsjuco2029.github.io/MINITEEN2.png"><p>Umbrella</p><p>₱1520</p><button class="btn-svt" onclick="openModal('Umbrella',1520)">Add</button></div></div>
+
+<div class="col-md-4 item MINITEEN"><div class="product"><img src="https://jsjuco2029.github.io/MINITEEN3.png"><p>Sticker Set</p><p>₱390</p><button class="btn-svt" onclick="openModal('Sticker Set',390)">Add</button></div></div>
+
+<div class="col-md-4 item MINITEEN"><div class="product"><img src="https://jsjuco2029.github.io/MINITEEN4.png"><p>Light Stick Strap Set</p><p>₱1520</p><button class="btn-svt" onclick="openModal('Light Stick Strap Set',1520)">Add</button></div></div>
+
+<div class="col-md-4 item MINITEEN"><div class="product"><img src="https://jsjuco2029.github.io/MINITEEN5.png"><p>L Holder Set</p><p>₱390</p><button class="btn-svt" onclick="openModal('L Holder Set',390)">Add</button></div></div>
+
+<div class="col-md-4 item dvd"><div class="product"><img src="https://jsjuco2029.github.io/media1.png"><p>New World Tour DVD</p><p>₱2690</p><button class="btn-svt" onclick="openModal('New World Tour DVD',2690)">Add</button></div></div>
+
+<div class="col-md-4 item dvd"><div class="product"><img src="https://jsjuco2029.github.io/media2.png"><p>Hoshi Photobook</p><p>₱999</p><button class="btn-svt" onclick="openModal('Hoshi Photobook',999)">Add</button></div></div>
+
+<div class="col-md-4 item dvd"><div class="product"><img src="https://jsjuco2029.github.io/media3.png"><p>2025 Fan Meeting MEMORY BOOK+</p><p>₱2388</p><button class="btn-svt" onclick="openModal('2025 Fan Meeting MEMORY BOOK+',2388)">Add</button></div></div>
+
+<div class="col-md-4 item dvd"><div class="product"><img src="https://jsjuco2029.github.io/media4.png"><p>2024 Fan Meeting MEMORY BOOK+</p><p>₱2388</p><button class="btn-svt" onclick="openModal('2024 Fan Meeting MEMORY BOOK+',2388)">Add</button></div></div>
+
+<div class="col-md-4 item dvd"><div class="product"><img src="https://jsjuco2029.github.io/media5.png"><p>2023 Fan Meeting MEMORY BOOK+</p><p>₱2388</p><button class="btn-svt" onclick="openModal('2023 Fan Meeting MEMORY BOOK+',2388)">Add</button></div></div>
+
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="box">
+<h5>CART (<span id="count">0</span>)</h5>
+<div id="cart"></div>
+<h6>Total: ₱<span id="total">0</span></h6>
+
+
+<form action="http://52.74.133.173/cs3/checkout.php"
+      method="POST"
+      onsubmit="return prepareOrder()">
+
+  <input type="text" name="cust_name" placeholder="Name" required><br><br>
+  <input type="text" name="cust_addr" placeholder="Address" required><br><br>
+  <input type="email" name="cust_email" placeholder="Email" required><br><br>
+
+  <input type="hidden" name="cust_order" id="cust_order">
+
+  <button type="submit" class="btn btn-success w-100 mt-2">
+    Checkout
+  </button>
+
+</form>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div id="modal" class="modal-bg">
+  <div class="modal-box">
+    <h5 id="modalName"></h5>
+
+    <div class="qty">
+      <button onclick="qty(-1)">-</button>
+      <span id="qty">1</span>
+      <button onclick="qty(1)">+</button>
+    </div>
+
+    <button class="add-btn" onclick="addItem()">Add to Cart</button>
+    <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<script>
+let cart=[];
+let nameSel="";
+let priceSel=0;
+let qtySel=1;
+
+
+function show(cat, el){
+  document.querySelectorAll(".item").forEach(i=>{
+    i.style.display = (cat==="all" || i.classList.contains(cat)) ? "block" : "none";
+  });
+
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  el.classList.add("active");
+}
+
+
+function openModal(n,p){
+  nameSel=n;
+  priceSel=p;
+  qtySel=1;
+  document.getElementById("modalName").innerText=n;
+  document.getElementById("qty").innerText=1;
+  document.getElementById("modal").classList.add("active");
+}
+
+function closeModal(){
+  document.getElementById("modal").classList.remove("active");
+}
+
+function qty(c){
+  qtySel+=c;
+  if(qtySel<1) qtySel=1;
+  document.getElementById("qty").innerText=qtySel;
+}
+
+function addItem(){
+  let i=cart.findIndex(x=>x.prod_name===nameSel);
+  if(i>=0) cart[i].quantity+=qtySel;
+  else cart.push({prod_name:nameSel,prod_price:priceSel,quantity:qtySel});
+  render();
+  closeModal();
+}
+
+function render(){
+  let total=0,html="";
+  cart.forEach((c,i)=>{
+    total+=c.prod_price*c.quantity;
+    html+=`<div class="item">${c.prod_name} x${c.quantity} ₱${c.prod_price*c.quantity}
+    <button class="remove" onclick="cart.splice(${i},1);render()">x</button></div>`;
+  });
+
+  document.getElementById("cart").innerHTML=html||"Empty";
+  document.getElementById("total").innerText=total;
+  document.getElementById("count").innerText=cart.reduce((a,b)=>a+b.quantity,0);
+}
+
+function prepareOrder() {
+  if (cart.length === 0) {
+    alert("Your cart is empty!");
+    return false;
+  }
+
+  const orderData = cart.map(item => ({
+    prod_name: item.quantity > 1
+      ? item.prod_name + " (Qty. " + item.quantity + ")"
+      : item.prod_name,
+    prod_price: item.prod_price * item.quantity
+  }));
+
+  document.getElementById("cust_order").value =
+    JSON.stringify(orderData);
+
+  return true;
+}
+</script>
+
+</body>
+</html>
